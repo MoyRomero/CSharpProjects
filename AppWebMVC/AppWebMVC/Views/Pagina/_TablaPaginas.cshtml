@@ -1,0 +1,28 @@
+﻿@using AppWebMVC.Models
+@model List<CPAGINA>
+
+<table>
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(x => Model[0].IDPagina)</td>
+            <td>@Html.LabelFor(x => Model[0].Mensaje)</td>
+            <td>@Html.LabelFor(x => Model[0].Accion)</td>
+            <td>@Html.LabelFor(x => Model[0].Controlador)</td>
+            <td>Editar</td>
+            <td>Eliminar</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {    <tr>
+                <td>@item.IDPagina</td>
+                <td>@item.Mensaje</td>
+                <td>@item.Accion</td>
+                <td>@item.Controlador</td>
+                <td><button class = "fa-solid fa-pen scaleIcon btn transparent" onclick = "EditarpPag(@item.IDPagina)" style = "color:#fffe" ></button></td>
+                <td><button class="fa-solid fa-trash scaleIcon transparent" onclick = "EliminarPopUpP(@item.IDPagina)" style="color:#fffe"></button></td>
+            </tr>
+        }
+    </tbody>
+</table>

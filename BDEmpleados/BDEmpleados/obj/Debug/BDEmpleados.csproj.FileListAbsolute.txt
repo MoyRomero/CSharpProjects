@@ -1,0 +1,16 @@
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\bin\Debug\BDEmpleados.exe.config
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\bin\Debug\BDEmpleados.exe
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\bin\Debug\BDEmpleados.pdb
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.Properties.Resources.resources
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.csproj.GenerateResource.cache
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.exe
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.pdb
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.Form1.resources
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.Form2.resources
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.Form3.resources
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.Form4.resources
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.Form5.resources
+C:\Users\moyro\source\repos\BDEmpleados\BDEmpleados\obj\Debug\BDEmpleados.Form6.resources

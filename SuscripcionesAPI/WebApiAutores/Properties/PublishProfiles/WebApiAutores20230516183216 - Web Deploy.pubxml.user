@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARmBTkG+NoEitnk2L7FlBCwAAAAACAAAAAAAQZgAAAAEAACAAAACfLddNsp/GyAWFADPUHJAIIXT8GyeRjB+hvkMRcpVadAAAAAAOgAAAAAIAACAAAADPHFgS7+J+A5+znwRpFDWqi1CtMirri4iPdR+MW/vX3YAAAAC77sK9xtsn+caVC1KusW2j7dkmxxRXhpgap4TwDPXpQcS2pbQ/DMYcd2f1IRJD7tP9GWiKon2PrTFxag5v6IMf8JjrKQ+ChG9JWYA/h48bLZlU9nnryfwGG/cRyWY3FPdDpDDXjR7IJ9CfbjH2UjMOXcfx9VxPPNcZeKGYkNWFTUAAAADcL2pAsaGngTttQaB4J2nhiKIUhZpXkewt6rumvi6W2AuqVop9EukfCtI9JrIzxZyWoOgBQs9JENP7Ph1lcwPb</EncryptedPassword>
+    <History>True|2023-05-17T17:54:30.4603066Z;True|2023-05-17T10:40:03.2929951-06:00;True|2023-05-16T20:47:50.7311268-06:00;False|2023-05-16T20:24:26.3423213-06:00;False|2023-05-16T20:09:47.1845147-06:00;False|2023-05-16T20:04:44.4663793-06:00;False|2023-05-16T19:51:34.1775314-06:00;False|2023-05-16T19:22:02.5469312-06:00;False|2023-05-16T19:08:38.3018713-06:00;False|2023-05-16T19:04:19.9886785-06:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="WebApiAutores.AplicationDbContext">
+      <Value>Data Source=tcp:mrwebapiautoresdbserver.database.windows.net,1433%3bInitial Catalog=WebApiAutores_db%3bUser Id=moyromero%40mrwebapiautoresdbserver%3bPassword=!moimoi12345</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

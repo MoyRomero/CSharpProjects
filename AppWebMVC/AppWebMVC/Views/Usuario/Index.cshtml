@@ -1,0 +1,240 @@
+﻿@using AppWebMVC.Models
+@model List<CUSUARIO>
+@{
+    ViewBag.Title = "USUARIOS";
+    List<SelectListItem> ListaR = (List<SelectListItem>)ViewBag.ListaRol;
+    List<SelectListItem> ListaTipoUsuario = (List<SelectListItem>)ViewBag.ListaTU;
+    List<SelectListItem> ListaID_C = (List<SelectListItem>)ViewBag.ListaIdC;
+    List<SelectListItem> ListaID_E = (List<SelectListItem>)ViewBag.ListaIdE;
+    List<SelectListItem> ListaPersonas = (List<SelectListItem>)ViewBag.Listapersonas;
+}
+
+<main>
+    <h2>USUARIOS</h2>
+    @using (Ajax.BeginForm("Filtro", "", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "divTablaUsuarios",
+        InsertionMode = InsertionMode.Replace
+    }, new { @id = "frmTablaUsuarios" }))
+    {
+        <div class="BackGrounds Formulario">
+            <div>
+                <span style="text-align:center; width:100%;"><label>FILTRAR POR NOMBRE:</label></span>
+                <span>@Html.TextBox("NombrePersona")</span>
+            </div>
+        </div>
+
+        <div id="divTablaUsuarios">
+            @Html.Partial("_TablaUsuarios", Model)
+        </div>
+    }
+
+    <div class="BackGrounds CRUDContainer">
+        <button class="botonMoy boton" onclick="Agregar()">AGREGAR</button>
+    </div>
+
+    <dialog id="ModalAGED" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>AGREGAR NUEVO USUARIO</h2>
+            </div>
+
+            @using (Ajax.BeginForm("Guardar", "Usuario", null, new AjaxOptions
+            {
+                HttpMethod = "POST",
+                OnSuccess = "Guardar",
+                UpdateTargetId = "DivErrores",
+                InsertionMode = InsertionMode.Replace
+            }))
+            {
+                <div id="DivErrores"></div>
+                <div class="Formulario">
+
+                    <div>
+                        <span><label>NOMBRE DE USUARIO:</label></span>
+                        <span>@Html.TextBox("NombreUsuario")</span>
+                    </div>
+
+                    <div id="Contr">
+                        <span><label>CONTRASEÑA:</label></span>
+                        <span>@Html.Password("Contrasena")</span>
+                    </div>
+
+                    <div id="TipUs">
+                        <span><label>TIPO USUARIO:</label></span>
+                        <span>@Html.DropDownList("TipoUsuario", ListaTipoUsuario)</span>
+                    </div>
+
+                    <div id="Pers">
+                        <span><label>NOMBRE DE LA PERSONA:</label></span>
+                        <span>@Html.DropDownList("ID", ListaPersonas)</span>
+                    </div>
+
+                    <div id="RlUs">
+                        <span><label>ROL DEL USUARIO:</label></span>
+                        <span>@Html.DropDownList("IDRol", ListaR)</span>
+                    </div>
+                </div>
+                @Html.TextBox("IDUsuario");
+                @Html.TextBox("TipoUsuarioPersona");
+                @Html.TextBox("Confirmacion");
+
+                <div>
+                    <button class="botonMoy boton" onclick="CerrarModal()">CANCELAR</button>
+                    <button class="botonMoy boton" type="submit">ENVIAR</button>
+                </div>
+            }
+        </div>
+    </dialog>
+
+    <dialog id="ModalUEl" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>¿Desea eliminar los datos?</h2>
+            </div>
+
+            <div>
+                <button class="botonMoy boton" onclick="CancelarREl()" type="button">CANCELAR</button>
+                <button class="botonMoy boton" onclick="EliminarEnviar()" type="button">ELIMINAR</button>
+            </div>
+        </div>
+    </dialog>
+
+</main>
+
+<script>
+
+    const ModalEliminar = document.getElementById("ModalUEl");
+    const ModalCRUD = document.getElementById("ModalAGED");
+
+    //datos formulario
+    const TipoUsuario = document.getElementById("TipoUsuario");
+    const ID = document.getElementById("ID");
+
+    //Divs
+    const TipUs = document.getElementById("TipUs")
+    const Contr = document.getElementById("Contr");
+    const Pers = document.getElementById("Pers");
+
+    const DropDownEmp = document.querySelector("#Emps select");
+    const DropDownCli = document.querySelector("#Cli select");
+    const TipoUsuarioPersona = document.getElementById("TipoUsuarioPersona");
+    const NombrePersona = document.getElementById("NombrePersona");
+
+
+    NombrePersona.onkeyup = () => $("#frmTablaUsuarios").trigger("submit");
+
+    TipoUsuario.onchange = () => TipoUsuarioPersona.value = TipoUsuario.value;
+
+    ID.onchange = () => {
+
+        let Nombre = ID.options[ID.selectedIndex].text;
+
+        TipoUsuarioPersona.value = Nombre;
+    }
+
+    function Guardar(respuesta) {
+
+        if (respuesta == "1" || respuesta == "0") {
+            alert("Se añadió el usuario de forma correcta.");
+            ModalCRUD.close();
+            $("#frmTablaUsuarios").trigger("submit");
+        }
+        else {
+            alert("Ocurrió un error.");
+        }
+    }
+
+    function LimpiarCampos() {
+
+        document.getElementById("IDUsuario").value = "";
+        document.getElementById("TipoUsuarioPersona").value = "";
+        document.getElementById("Confirmacion").value = "";
+
+        document.getElementById("NombreUsuario").value = "";
+        document.getElementById("Contrasena").value = "";
+        document.getElementById("TipoUsuario").value = "";
+        document.getElementById("ID").value = "";
+        document.getElementById("IDRol").value = "";
+    }
+
+    function EditarUs(id) {        
+        
+        LimpiarCampos();
+
+        document.getElementById("Confirmacion").value = id;
+        document.getElementById("IDUsuario").value = id;
+
+        TipUs.style.display = "none";
+        Contr.style.display = "none";
+        Pers.style.display = "none"; 
+
+        $.get("Usuario/CapturarDatos/?IDUsuario="+id, function (data) {  
+
+            document.getElementById("NombreUsuario").value = data.NombreUsuario;
+            document.getElementById("IDRol").value = data.IDRol;
+            document.getElementById("Contrasena").value = "1";
+            document.getElementById("ID").value = "1";
+        });
+
+        ModalCRUD.showModal();
+    }
+
+    function CancelarREl() {
+        ModalEliminar.close();
+    }
+
+    function EliminarUs(id) {
+
+        document.getElementById("Confirmacion").value = id;
+
+        console.log(id)
+
+        ModalEliminar.showModal();
+    }
+    function EliminarEnviar() {
+
+        let id = document.getElementById("Confirmacion").value;
+
+        parseInt(id);
+
+        console.log(id)
+
+        $.get("Usuario/Eliminar/?Confirmacion="+id, (data) => {
+            if (data == 1) {
+                alert(`Se ha eliminado el usuario ${id} de forma correcta.`);
+                $("#frmTablaUsuarios").trigger("submit");
+                ModalEliminar.close();
+            }
+            else {
+                alert("Ocurrió un error.");
+            }
+        });
+    }
+
+    function Agregar() {
+
+        LimpiarCampos();
+
+        TipUs.style.display = "block";
+        Contr.style.display = "block";
+        Pers.style.display = "block";
+
+        document.getElementById("DivErrores").innerHTML = "";
+
+        document.getElementById("IDUsuario").value = "1";
+
+        document.getElementById("Confirmacion").value = -1;
+
+        ModalCRUD.showModal();
+
+    }
+
+    function CerrarModal() {
+        event.preventDefault();
+        ModalCRUD.close();
+    }
+
+</script>
+

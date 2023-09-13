@@ -1,0 +1,30 @@
+﻿@using AppWebMVC.Models
+@model List<CUSUARIO>
+<table>
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(x => Model[0].IDUsuario)</td>
+            <td>@Html.LabelFor(x => Model[0].NombrePersona)</td>
+            <td>@Html.LabelFor(x => Model[0].NombreUsuario)</td>
+            <td>@Html.LabelFor(x => Model[0].TipoUsuario)</td>
+            <td>@Html.LabelFor(x => Model[0].NombreRol)</td>
+            <td>Editar</td>
+            <td>Eliminar</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IDUsuario</td>
+                <td>@item.NombrePersona</td>
+                <td>@item.NombreUsuario</td>
+                <td>@item.TipoUsuario</td>
+                <td>@item.NombreRol</td>
+                <td><button class="fa-solid fa-pen scaleIcon btn transparent" style="color:#fffe" onclick="EditarUs(@item.IDUsuario)"></button></td>
+                <td><button class="fa-solid fa-trash scaleIcon transparent" onclick="EliminarUs(@item.IDUsuario)" style="color:#fffe"></button></td>
+            </tr>
+         }
+        </tbody>
+    </table>

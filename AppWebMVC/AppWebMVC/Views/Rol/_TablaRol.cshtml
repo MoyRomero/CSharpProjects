@@ -1,0 +1,31 @@
+﻿@using AppWebMVC.Models
+@model List<CROL>
+
+<table>
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(x => Model[0].IDRol)</td>
+            <td>@Html.LabelFor(x => Model[0].NOMBRE)</td>
+            <td>@Html.LabelFor(x => Model[0].Descripcion)</td>
+            <td>Editar</td>
+            <td>Eliminar</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IDRol</td>
+                <td>@item.NOMBRE</td>
+                <td>@item.Descripcion</td>
+                <td><button class = "fa-solid fa-pen scaleIcon btn transparent" onclick = "EditarRol(@item.IDRol)" style = "color:#fffe" ></button></td>
+                <td><button class="fa-solid fa-trash scaleIcon transparent" onclick = "EliminarPopUpR(@item.IDRol)" style="color:#fffe"></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@using (Html.BeginForm("Eliminar", "Rol", FormMethod.Post, new { @id = "frmEliminar" }))
+{@Html.Hidden("idElemento");
+}*@

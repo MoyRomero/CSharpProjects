@@ -1,0 +1,223 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+    font-family:sans-serif;
+}
+body{
+    width:100%;
+    max-height:100vh;
+    display:grid;
+    grid-template-rows:10vh minmax(80vh, 1fr) 10vh;
+}
+
+header{
+    display:flex;
+    align-items:center;
+    background:#111;
+    box-shadow:0px 0px 10px 5px #000b;
+    grid-row:1/2;
+}
+    nav{
+        width:100%;
+    }
+    nav a {
+        font-size:25px;
+        text-decoration: none;
+        margin:10px;
+        color: #fff;
+        text-shadow: 0px 0px 3px #fff;
+        transition-property: text-shadow transform;
+        transition-duration: .4s;
+    }
+    nav a:hover{
+        text-shadow: 0px 0px 10px #fff;
+        transform:scale(1.2) !important;
+    }
+    nav div{
+        display:flex;
+        flex-wrap:nowrap;
+        width:100%;
+        height:auto;
+        justify-content:space-evenly;
+    }
+
+
+main {
+    grid-row: 2/3;
+}
+
+footer{
+    background:linear-gradient(to top, #111, #fff);
+    grid-row:3/4;
+}
+    #HoraAutomatica {
+        display:flex;
+        flex-wrap:nowrap;
+        justify-content:space-between;
+        font-family: 'Roboto Mono', monospace;
+        color: #fff;
+        background: #0007;
+        border-radius: 5px;
+        text-align: center;
+        margin: 10px;
+    }
+    #HoraAutomatica p {  
+        display:flex;
+        flex-wrap:nowrap;
+        align-items: center;
+        margin:auto;
+        height:40px;
+    }
+    #HoraAutomatica span{
+        margin:2px;
+    }
+
+    h2 {
+        margin: 10px auto auto auto !important;
+        text-align: center;
+    }
+
+.containerStyle {
+    background: #0001;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 1px #000;
+}
+
+dialog{
+    background:#fff !important;
+    border:none;
+    padding:0px;
+    border-radius:5px;
+}
+    .boton_1 {
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 4px 2px #0007;
+        transition-duration:.4s;
+        transition-property:background-color transform;
+    }
+    .boton_1:focus {
+        box-shadow: 0px 0px 10px 2px #0009;
+        outline: none;
+    }
+    .boton_1:hover {
+        box-shadow: 0px 0px 10px 2px #0009;
+    }
+    .boton_1:active {
+        transform:scale(1.2);
+    }
+
+.icono {
+    color: #fff;
+    background: #0000;
+    margin: 2px;
+    padding: 1px;
+    font-size: 30px;
+    border: none;
+    width: 50px;
+    height: 50px;
+    text-shadow: 0px 0px 2px #fff;
+    transition-property: text-shadow transform;
+    transition-duration: .4s;
+}
+    .icono:hover {
+        text-shadow: 0px 0px 4px #fff;
+        transform: scale(1.1) !important;
+    }
+    .icono:active {
+        text-shadow: 0px 0px 10px #fff;
+        transform: scale(1.3) !important;
+    }
+
+    @media screen and (min-width:700px){
+        body {                       
+            grid-template-rows: 10vh minmax(80vh, 1fr) 10vh;
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            background: #111;
+            box-shadow: 0px 0px 10px 5px #000b;
+            grid-row: 1/2;
+            grid-column:1/-1;
+            z-index:800;
+        }
+            nav div {
+                display: flex;
+                flex-direction:column;
+                width: 100%;
+                height: auto;
+            }
+
+            .NavLateral {
+                display:none;
+                grid-row: 1/4;
+                grid-column: 1/2;
+                width:0%;
+                background: #111;
+                box-shadow:0px 0px 10px 5px #000b;
+                z-index:10000;
+                animation: ancho 0.2s ease-in forwards;
+            }
+            @keyframes ancho { 0% {    width: 0%; opacity: 0; } 100% { width: 100%; opacity: 1; } }
+            @keyframes anchoReversa { 0% { width: 100%; opacity: 1; } 100% { width: 0%; opacity: 0; } }
+
+                .divNav{
+                    display:grid;
+                    grid-template-columns:80% 20%;
+                    width:100%;
+                    height:auto;
+                }
+                .divNav:first-child{
+                    height:auto !important;
+                }
+                .divNav a{
+                    text-align:center;
+                }
+                .divNav button{                    
+                    width:100%;
+                    height:auto;
+                    padding:0px;
+                    margin:10px auto auto auto;
+                    box-sizing:border-box;
+                }
+
+        main {
+            grid-row: 2/3;
+            grid-column:1/-1;
+            z-index:500;
+        }
+
+        footer {
+            background: linear-gradient(to top, #111, #fff);
+            grid-row: 3/4;
+            grid-column:1/-1;
+            z-index:500 !important;
+        }
+    }
+
+.TablaGenerica{
+    border:1px solid #3333;
+    margin:30px 20px auto 20px;
+}
+
+.divBusqueda{
+    display:flex;
+    justify-content:center;
+    margin:70px auto auto auto;
+    border-radius:5px;
+    width:100%;
+    max-width:200px;
+    height:auto;
+    background:#2222;
+    
+}
+
+    .divBusqueda input{
+        width: 100%; 
+        margin:20px;
+        outline:none;
+    }

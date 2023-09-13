@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\ClasesPOO\bin\Debug\ClasesPOO.exe.config
+C:\Users\moyro\source\repos\ClasesPOO\bin\Debug\ClasesPOO.exe
+C:\Users\moyro\source\repos\ClasesPOO\bin\Debug\ClasesPOO.pdb
+C:\Users\moyro\source\repos\ClasesPOO\obj\Debug\ClasesPOO.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\ClasesPOO\obj\Debug\ClasesPOO.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\ClasesPOO\obj\Debug\ClasesPOO.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\ClasesPOO\obj\Debug\ClasesPOO.exe
+C:\Users\moyro\source\repos\ClasesPOO\obj\Debug\ClasesPOO.pdb

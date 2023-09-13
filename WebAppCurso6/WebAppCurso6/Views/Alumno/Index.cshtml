@@ -1,0 +1,107 @@
+﻿
+@{
+    string titulo = ViewBag.Title = "ALUMNOS";
+}
+
+<main>
+
+    <h2>@titulo</h2>
+
+    <div class="infoAlumnosContainer containerStyle" id="divSelect">
+        <div class="ErrorEliminarAlumno">
+
+        </div>
+        <div id="DatosAlumnosRO" class="datosAlumno">
+
+            <label> Alumno: </label>
+
+            <select id="selectNombres">
+            </select>
+
+            <label for="IdAlumno">Id: </label>
+            <input id="IdAlumno" readonly="readonly" />
+
+            <label for="FechaNacimientoAlumno">FechaNacimiento: </label>
+            <input id="FechaNacimientoAlumno" readonly="readonly" />
+
+            <label for="SexoAlumno">Género: </label>
+            <select id="SexoAlumno" disabled="disabled">
+                <option value="1">MASCULÍNO</option>
+                <option value="2">FEMENINO</option>
+            </select>
+
+            <label for="TelefonoPadreAlumno">Telefono del Padre: </label>
+            <input id="TelefonoPadreAlumno" readonly="readonly" />
+
+            <label for="TelefonoMadreAlumno">Telefono de la Madre: </label>
+            <input id="TelefonoMadreAlumno" readonly="readonly" />
+
+            <label for="UsuarioAlumno">Usuario: </label>
+            <input id="UsuarioAlumno" readonly="readonly" />
+        </div>
+
+        <div class="fotoForm">
+            <label> Fotografía del Alumno:</label>
+            <img id="imgDatosContainer" class="containerStyle" src="https://i.pinimg.com/280x280_RS/42/03/a5/4203a57a78f6f1b1cc8ce5750f614656.jpg" />            
+        </div>
+
+        <div class="btnAgregarContainer">
+            <button class="boton_1" onclick="AbrirModal(1)">AGREGAR</button>
+            <button class="boton_1" onclick="AbrirModal(2)">EDITAR</button>
+            <button class="boton_1" onclick="Eliminar()">ELIMINAR</button>
+        </div>
+    </div> 
+</main>
+
+<dialog id="ModalAgregar" class="containerStyle">
+
+    <div id="ErroresDiv" class="DivErrores">
+
+    </div>
+    <div class="datosAlumno">
+        <label for="NombredtoAlumno">Nombre: </label>
+        <input id="NombredtoAlumno" />
+
+        <label for="ApellidoPdtoAlumno">Apellido Paterno: </label>
+        <input id="ApellidoPdtoAlumno" />
+
+        <label for="ApellidoMdtoAlumno">Apellido Materno: </label>
+        <input id="ApellidoMdtoAlumno" />
+
+        <label for="FNdtoAlumno">Fecha Nacimiento: </label>
+        <input type="datetime-local" id="FNdtoAlumno" />
+
+        <label for="SexoAlumno">Género: </label>
+        <select id="idSexodtoAlumno">
+            <option value="1">MASCULÍNO</option>
+            <option value="2">FEMENINO</option>
+        </select>
+
+        <label for="TelPadtoAlumno">Telefono Padre: </label>
+        <input id="TelPadtoAlumno" />
+
+        <label for="TelMadtoAlumno">Telefono Madre: </label>
+        <input id="TelMadtoAlumno" />
+
+        <label for="UsuariodtoAlumno">Usuario: </label>
+        <input id="UsuariodtoAlumno" />
+
+        <label for="NumHermanos">Numero de Hermanos: </label>
+        <input id="NumHermanos" />
+    </div>
+        <div class="fotoForm">
+            <label> Fotografía del Alumno:</label>
+
+            <img id="imgContainer" class="containerStyle" src="https://i.pinimg.com/280x280_RS/42/03/a5/4203a57a78f6f1b1cc8ce5750f614656.jpg" />
+            <input id="FotoInput" type="file" />
+        </div>
+
+        <div class="btnsModal">
+            <button class="boton_1" onclick="Enviar()">Enviar</button>
+            <button class="boton_1" onclick="cerrarModal()">Cancelar</button>
+        </div>
+
+</dialog>
+
+<script src="~/Scripts/DatosAlumnos.js"></script>
+

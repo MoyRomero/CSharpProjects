@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\OperatorOverload\bin\Debug\OperatorOverload.exe.config
+C:\Users\moyro\source\repos\OperatorOverload\bin\Debug\OperatorOverload.exe
+C:\Users\moyro\source\repos\OperatorOverload\bin\Debug\OperatorOverload.pdb
+C:\Users\moyro\source\repos\OperatorOverload\obj\Debug\OperatorOverload.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\OperatorOverload\obj\Debug\OperatorOverload.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\OperatorOverload\obj\Debug\OperatorOverload.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\OperatorOverload\obj\Debug\OperatorOverload.exe
+C:\Users\moyro\source\repos\OperatorOverload\obj\Debug\OperatorOverload.pdb

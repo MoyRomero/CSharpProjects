@@ -1,0 +1,27 @@
+﻿@using AppWebMVC.Models
+@model List<CROLPAGINA>
+
+<table>
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(x => Model[0].IDRolPagina)</td>
+            <td>@Html.LabelFor(x => Model[0].Rol)</td>
+            <td>@Html.LabelFor(x => Model[0].Pagina)</td>
+            <td>Editar</td>
+            <td>Eliminar</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IDRolPagina</td>
+                <td>@item.Rol</td>
+                <td>@item.Pagina</td>
+                <td><button class="fa-solid fa-pen scaleIcon btn transparent" onclick="EditarRolPagina(@item.IDRolPagina)" style="color:#fffe"></button></td>
+                <td><button class="fa-solid fa-trash scaleIcon transparent" onclick="EliminarPopUpRP(@item.IDRolPagina)" style="color:#fffe"></button></td>
+            </tr>           
+        }
+    </tbody>
+</table>

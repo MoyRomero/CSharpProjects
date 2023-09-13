@@ -1,0 +1,9 @@
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\bin\Debug\Capa_Entidad.dll
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\obj\Debug\Capa_Datos.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\obj\Debug\Capa_Datos.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\obj\Debug\Capa_Datos.csproj.CopyComplete
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Datos\obj\Debug\Capa_Datos.pdb

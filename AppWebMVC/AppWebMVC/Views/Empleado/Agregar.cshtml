@@ -1,0 +1,90 @@
+﻿@using AppWebMVC.Models
+@model CEMPLEADO
+
+@{
+    List<SelectListItem> Lista_S = (List<SelectListItem>) ViewBag.Lista_s;
+    List<SelectListItem> Lista_C = (List<SelectListItem>) ViewBag.Lista_c;
+
+    ViewBag.Title = "Agregar";
+}
+
+<main>
+    <h2>AGREGAR EMPLEADO</h2>
+
+    @using (Html.BeginForm("Agregar", "Empleado", FormMethod.Post, new { @id = "formAgreg" }))
+    {
+        <div class="Add-Data-Container BackGrounds">
+            <div class="Columna_3">
+                <h2>AÑADIR DATOS</h2>
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.NOMBRE):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.NOMBRE)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("NOMBRE")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.APPaterno):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.APPaterno)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("APPaterno")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.APMaterno):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.APMaterno)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("APMaterno")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.Sexo):</span>
+            </div>
+            <div>
+                @Html.DropDownList("IDSexo", Lista_S)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("IDSexo")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.FechaContrato):</span>
+            </div>
+            <div>
+                @Html.EditorFor(x => x.FechaContrato)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("FechaContrato")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.TipoContrato):</span>
+            </div>
+            <div>
+                @Html.DropDownList("IDTipoContrato", Lista_C)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("TipoContrato")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.Sueldo):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.Sueldo)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("Sueldo")
+            </div>
+            <div>
+                <input type="submit" value="ENVIAR" class=" botonMoy boton" />
+            </div>
+        </div>
+     }
+</main>
+
+

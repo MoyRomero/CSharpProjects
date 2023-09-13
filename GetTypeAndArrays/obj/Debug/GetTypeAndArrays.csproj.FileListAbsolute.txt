@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\GetTypeAndArrays\bin\Debug\GetTypeAndArrays.exe.config
+C:\Users\moyro\source\repos\GetTypeAndArrays\bin\Debug\GetTypeAndArrays.exe
+C:\Users\moyro\source\repos\GetTypeAndArrays\bin\Debug\GetTypeAndArrays.pdb
+C:\Users\moyro\source\repos\GetTypeAndArrays\obj\Debug\GetTypeAndArrays.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\GetTypeAndArrays\obj\Debug\GetTypeAndArrays.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\GetTypeAndArrays\obj\Debug\GetTypeAndArrays.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\GetTypeAndArrays\obj\Debug\GetTypeAndArrays.exe
+C:\Users\moyro\source\repos\GetTypeAndArrays\obj\Debug\GetTypeAndArrays.pdb

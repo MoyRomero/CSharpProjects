@@ -1,0 +1,61 @@
+﻿@using AppWebMVC.Models;
+@model List<CRESERVA>
+@{
+    ViewBag.Title = "RESERVAS REALIZADAS";
+}
+
+<main>
+    <h2>RESERVAS REALIZADAS</h2>
+
+    <div class="ReservasRealizadas BackGrounds">
+
+        @foreach(var item in Model)
+        {
+            <div class="Reserva_">
+                <div style="display:flex; flex-wrap:nowrap; justify-content:center;">
+                    <h3>RESERVA </h3> <i class="fa-solid fa-circle-check" style="color: #55da52;"></i>
+                </div>
+               
+                <div>
+                    <label>NOMBRE: </label>
+                    <label>@item.NombrePersona</label>
+                </div>
+
+                <div>
+                    <label>FECHA VIAJE: </label>
+                    <label>@item.FechaViaje</label>
+                </div>
+
+                <div>
+                    <label>FECHA DE COMPRA: </label>
+                    <label>@item.FechaCompra</label>
+                </div>
+
+                <div>
+                    <label>ORIGEN: </label>
+                    <label>@item.LugarOrigen</label>
+                </div>
+
+                <div>
+                    <label>DESTINO: </label>
+                    <label>@item.LugarDestino</label>
+                </div>
+
+                <div>
+                    <label>TOTAL ASIENTOS: </label>
+                    <label>@item.AsientosReservados</label>
+                </div>
+
+                <div>
+                    <label>TOTAL PAGADO: </label>
+                    <label>$ @item.Total</label>
+                </div>
+
+                <div>
+                    <label>BUS: </label>
+                    <label>@item.PlacaBus</label>
+                </div>
+            </div>
+        }
+    </div>
+</main>

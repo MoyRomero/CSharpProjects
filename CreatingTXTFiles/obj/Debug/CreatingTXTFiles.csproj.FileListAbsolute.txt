@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\CreatingTXTFiles\bin\Debug\CreatingTXTFiles.exe.config
+C:\Users\moyro\source\repos\CreatingTXTFiles\bin\Debug\CreatingTXTFiles.exe
+C:\Users\moyro\source\repos\CreatingTXTFiles\bin\Debug\CreatingTXTFiles.pdb
+C:\Users\moyro\source\repos\CreatingTXTFiles\obj\Debug\CreatingTXTFiles.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\CreatingTXTFiles\obj\Debug\CreatingTXTFiles.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\CreatingTXTFiles\obj\Debug\CreatingTXTFiles.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\CreatingTXTFiles\obj\Debug\CreatingTXTFiles.exe
+C:\Users\moyro\source\repos\CreatingTXTFiles\obj\Debug\CreatingTXTFiles.pdb

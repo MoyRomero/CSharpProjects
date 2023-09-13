@@ -1,0 +1,49 @@
+﻿@using AppWebMVC.Models;
+@model CMARCA
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<main>
+    <h2>AGREGAR MARCA</h2>
+
+    @using (Html.BeginForm("Agregar", "Marca", FormMethod.Post, new {@id = "formAgreg"}))
+    {
+        <div class="Add-Data-Container BackGrounds">
+
+            <div class="Columna_3">
+                <h2>AÑADIR DATOS</h2>
+            </div>
+            <div>
+                <span> @Html.LabelFor(x => x.NOMBRE): </span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.NOMBRE)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("NOMBRE")
+                @if (Model != null && Model.MensajeError != null)
+                {
+                    <script>
+
+                            setTimeout(function () {
+                                alert("@Model.MensajeError");
+                            },300)
+                    </script>
+                }
+            </div>
+            <div>
+                <span> @Html.LabelFor(x => x.DescripMarca): </span>
+            </div>
+            <div>
+                @Html.TextAreaFor(x => x.DescripMarca)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("DescripMarca")
+            </div>
+            <div>
+                <input type="submit" value="AGREGAR" class=" botonMoy boton" />
+            </div>
+        </div>
+     }    
+</main>

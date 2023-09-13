@@ -1,0 +1,66 @@
+﻿@using AppWebMVC.Models;
+@model CMARCA
+@{
+    ViewBag.Title = "Editar";
+}
+
+<main>
+    <h2>EDITAR MARCA</h2>
+
+    @using (Html.BeginForm("Editar", "Marca", FormMethod.Post, new {@id = "formEdit"}))
+    {
+        <div class="Add-Data-Container BackGrounds">
+
+            <div class="Columna_3">
+                <h2>AÑADIR DATOS</h2>
+            </div>
+
+            <div>
+                <span> @Html.LabelFor(x => x.IDMarca): </span>
+            </div>
+
+            <div>
+                @Html.TextBoxFor(x => x.IDMarca, new { @readOnly = "true" })
+            </div>
+
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("IDMarca")
+            </div>
+
+            <div>
+                <span> @Html.LabelFor(x => x.NOMBRE): </span>
+            </div>
+
+            <div>
+                @Html.TextBoxFor(x => x.NOMBRE)
+            </div>
+
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("NOMBRE")
+                @if (Model != null && Model.MensajeError != null)
+                {
+                    <script>
+                            setTimeout(function () {
+                                alert("@Model.MensajeError");
+                            },300)
+                    </script>
+                }
+            </div>
+
+            <div>
+                <span> @Html.LabelFor(x => x.DescripMarca): </span>
+            </div>
+
+            <div>
+                @Html.TextAreaFor(x => x.DescripMarca)
+            </div>
+
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("DescripMarca")
+            </div>
+            <div>
+                <input type="submit" value="ACTUALIZAR" class=" botonMoy boton" />
+            </div>
+        </div>
+    }
+</main>

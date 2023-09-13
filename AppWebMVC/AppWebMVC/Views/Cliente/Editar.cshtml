@@ -1,0 +1,112 @@
+﻿@using AppWebMVC.Models
+@model CCLIENTES
+@{
+    ViewBag.Title = "Editar";
+    List<SelectListItem> ListaSe = (List<SelectListItem>)ViewBag.lista;
+}
+
+<main>
+    <h2>EDITANDO CLIENTE</h2>
+
+    @using (Html.BeginForm("Editar", "Cliente", FormMethod.Post, new { @id = "formEdit" }))
+    {
+        <div class="Add-Data-Container BackGrounds">
+
+            <div class="Columna_3">
+                <h2>AÑADIR DATOS</h2>
+            </div>
+
+            <div>
+                <span>@Html.LabelFor(x => x.IDCliente):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.IDCliente, new {@readOnly = true})
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("IDCliente")
+            </div>
+
+            <div>
+                <span>@Html.LabelFor(x => x.NOMBRE):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.NOMBRE)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("NOMBRE")
+                @if (Model != null && Model.MensajeErrorNombres != null)
+                {
+                    <span>@Model.MensajeErrorNombres</span>
+                }
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.Appaterno):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.Appaterno)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("Appaterno")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.Apmaterno):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.Apmaterno)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("Apmaterno")
+            </div>
+            <div>
+                <span> @Html.LabelFor(x => x.Email):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.Email)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("Email")
+            </div>
+            <div>
+                <span> @Html.LabelFor(x => x.Direccion):</span>
+            </div>
+            <div>
+                @Html.TextAreaFor(x => x.Direccion)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("Direccion")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.IDSexo):</span>
+            </div>
+            <div>
+                @Html.DropDownList("IDsexo", ListaSe)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("IDSexo")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.TelefonoFijo):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.TelefonoFijo)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("TelefonoFijo")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.TelefonoCel):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.TelefonoCel)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("TelefonoCel")
+            </div>
+            <div>
+                <input type="submit" value="ACTUALIZAR" class=" botonMoy boton" />
+            </div>
+        </div>
+    }
+
+
+</main>

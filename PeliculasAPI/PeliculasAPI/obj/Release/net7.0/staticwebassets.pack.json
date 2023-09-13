@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\actores\\73aa6a11-2b24-4468-8ed0-a4fe8880204b.jpg",
+      "PackagePath": "staticwebassets\\actores\\73aa6a11-2b24-4468-8ed0-a4fe8880204b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\actores\\7feb77f8-0c84-48f7-879b-597a4b09c822.jpg",
+      "PackagePath": "staticwebassets\\actores\\7feb77f8-0c84-48f7-879b-597a4b09c822.jpg"
+    },
+    {
+      "Id": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\actores\\ffe4b31d-72c1-48a9-a3c5-774b9337ba92.jpg",
+      "PackagePath": "staticwebassets\\actores\\ffe4b31d-72c1-48a9-a3c5-774b9337ba92.jpg"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.PeliculasAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.build.PeliculasAPI.props",
+      "PackagePath": "build\\PeliculasAPI.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.PeliculasAPI.props",
+      "PackagePath": "buildMultiTargeting\\PeliculasAPI.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.PeliculasAPI.props",
+      "PackagePath": "buildTransitive\\PeliculasAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

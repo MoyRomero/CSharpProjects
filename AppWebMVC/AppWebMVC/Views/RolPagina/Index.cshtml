@@ -1,0 +1,183 @@
+﻿@using AppWebMVC.Models
+@model List<CROLPAGINA>
+@{
+    ViewBag.Title = "ROL PÁGINA";
+    List<SelectListItem> ListaRol = (List<SelectListItem>)ViewBag.listrol;
+    List<SelectListItem> ListaPagina = (List<SelectListItem>)ViewBag.listpagina;
+}
+
+<main>
+    <h2>ROL PÁGINA</h2>
+
+    @using (Ajax.BeginForm("Filtro", "", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "divTablaRolPag",
+        InsertionMode = InsertionMode.Replace
+    }, new { @id = "frmFiltroRolPagina" }))
+    {
+        <div class="BackGrounds Formulario">
+            <div>
+                <span style="text-align:center; width:100%;"><label>FILTRAR POR ID:</label></span>
+                <span>@Html.DropDownList("IDRol", ListaRol)</span>
+            </div>
+        </div>
+
+        <div id="divTablaRolPag">
+            @Html.Partial("_TablaRolPagina", Model)
+        </div>
+    }
+
+    <div class="BackGrounds CRUDContainer">
+        <button class="botonMoy boton" onclick="AgregarRol()">AGREGAR</button>
+    </div>
+
+    <dialog id="ModalRPD" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2></h2>
+            </div>
+
+            @using (Ajax.BeginForm("Guardar", "RolPagina", null, new AjaxOptions
+            {
+                HttpMethod = "POST",
+                OnSuccess = "Guardar",
+                UpdateTargetId = "ErroresDiv"
+            }))
+            {
+                <div id="ErroresDiv"></div>
+
+                <div class="Formulario">
+                    <div>
+                        <span style="text-align:center; width:100%;"><label>DEFINIR: ROL</label></span>
+                        <span>@Html.DropDownList("IDRol", ListaRol)</span>
+                    </div>
+                    <div>
+                        <span style="text-align:center; width:100%;"><label>DEFINIR: PÁGINA</label></span>
+                        <span>@Html.DropDownList("IDPagina", ListaPagina)</span>
+                    </div>
+                    @Html.Hidden("Confirmacion")
+                    @Html.Hidden("Rol")
+                    @Html.Hidden("Pagina")
+                </div>
+
+                <div>
+                    <button class="botonMoy boton" onclick="" id="btnCancelar" type="submit">CANCELAR</button>
+                    <button class="botonMoy boton" onclick="" id="btnEnviar" type="submit">ACEPTAR</button>
+                </div>
+            }
+        </div>
+    </dialog>
+
+    <dialog id="ModalRPEl" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>¿Desea eliminar los datos?</h2>
+            </div>
+
+            <div>
+                <button class="botonMoy boton" onclick="CancelarRPEl()" type="button">CANCELAR</button>
+                <button class="botonMoy boton" onclick="EliminarRP()" type="button">ELIMINAR</button>
+            </div>
+        </div>
+    </dialog>
+
+</main>
+
+<script>
+
+    const IDRol = document.querySelector(".Formulario #IDRol");
+
+    const ModalH2 = document.querySelector("#ModalRPD H2");
+    const ModalRP = document.getElementById("ModalRPD");
+    const IDRolModal = document.querySelector("#ModalRPD #IDRol");
+    const IDPagModal = document.querySelector("#ModalRPD #IDPagina");
+    const btnCancelarRP = document.getElementById("btnCancelar");
+    const btnEnviar = document.getElementById("btnEnviar");
+
+    const ModalRPEl = document.getElementById("ModalRPEl");
+
+
+    IDRol.onchange = () => $("#frmFiltroRolPagina").trigger("submit");
+
+    btnEnviar.onclick = () => {
+
+        document.getElementById("Rol").value = IDRolModal.options[IDRolModal.selectedIndex].text;
+
+        document.getElementById("Pagina").value = IDPagModal.options[IDPagModal.selectedIndex].text;
+    }
+
+    btnCancelarRP.onclick= (e) => {
+        e.preventDefault();
+        ModalRP.close();
+    } 
+
+    function LimpiarCampos() {
+        IDRolModal.value = "";
+        IDPagModal.value = "";
+        document.getElementById("ErroresDiv").innerHTML = "";
+    }
+
+    function EditarRolPagina(id) {
+
+        LimpiarCampos();
+
+        document.getElementById("Confirmacion").value = id;
+
+        $.get("RolPagina/CapturarDatos/?Confirmacion=" + id, (data) => {
+            IDRolModal.value = data.IDRol;
+            IDPagModal.value = data.IDPagina;
+        })        
+
+        ModalH2.textContent = "EDITAR ROL PÁGINA";
+        ModalRP.showModal();
+    }
+
+    function AgregarRol() {
+        LimpiarCampos()
+
+        document.getElementById("Confirmacion").value = -1;
+
+        ModalH2.textContent = "AGREGAR ROL PÁGINA";
+
+        ModalRP.showModal();
+    }
+
+    function Guardar(respuesta) {
+        if (respuesta == "1" || respuesta == "0") {
+            $("#frmFiltroRolPagina").trigger("submit");
+            alert("Se agregaró la información a la base de datos, de forma correcta.");
+            ModalRP.close();
+        }
+        else {
+            alert("Ocurrió un error.")
+        }
+    }    
+
+    function EliminarRP() {
+       
+        let id = document.getElementById("Confirmacion").value;
+
+        $.get("RolPagina/Eliminar/?IDRolPagina="+id, (data) => {
+            if (data == "1") {
+                alert("Se eliminaron los datos, de forma correcta.")
+                $("#frmFiltroRolPagina").trigger("submit");
+                ModalRPEl.close();
+            }
+            else {
+                alert("Ocurrió un error.");
+            }
+        });
+    }
+
+    function EliminarPopUpRP(id) {
+
+        document.getElementById("Confirmacion").value = id;
+
+        ModalRPEl.showModal();
+    }
+
+    const CancelarRPEl = () => ModalRPEl.close();
+
+</script>
+

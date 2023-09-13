@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\AbstractClass\bin\Debug\AbstractClass.exe.config
+C:\Users\moyro\source\repos\AbstractClass\bin\Debug\AbstractClass.exe
+C:\Users\moyro\source\repos\AbstractClass\bin\Debug\AbstractClass.pdb
+C:\Users\moyro\source\repos\AbstractClass\obj\Debug\AbstractClass.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\AbstractClass\obj\Debug\AbstractClass.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\AbstractClass\obj\Debug\AbstractClass.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\AbstractClass\obj\Debug\AbstractClass.exe
+C:\Users\moyro\source\repos\AbstractClass\obj\Debug\AbstractClass.pdb

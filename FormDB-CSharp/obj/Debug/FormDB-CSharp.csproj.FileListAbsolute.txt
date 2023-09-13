@@ -1,0 +1,12 @@
+C:\Users\moyro\source\repos\FormDB-CSharp\bin\Debug\FormDB-CSharp.exe.config
+C:\Users\moyro\source\repos\FormDB-CSharp\bin\Debug\FormDB-CSharp.exe
+C:\Users\moyro\source\repos\FormDB-CSharp\bin\Debug\FormDB-CSharp.pdb
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB-CSharp.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB-CSharp.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB_CSharp.Form1.resources
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB_CSharp.Properties.Resources.resources
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB-CSharp.csproj.GenerateResource.cache
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB-CSharp.exe
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB-CSharp.pdb
+C:\Users\moyro\source\repos\FormDB-CSharp\obj\Debug\FormDB_CSharp.Form2.resources

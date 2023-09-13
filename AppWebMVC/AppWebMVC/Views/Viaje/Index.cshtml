@@ -1,0 +1,239 @@
+﻿@using AppWebMVC.Models
+@model List<CVIAJE>
+@{
+    ViewBag.Title = "Index";
+    List<SelectListItem> ListaLugarOri = (List<SelectListItem>)ViewBag.LilugOrig;
+    List<SelectListItem> ListaLugarDes = (List<SelectListItem>)ViewBag.LilugDest;
+    List<SelectListItem> ListaBus = (List<SelectListItem>)ViewBag.LiIdBus;
+}
+
+<main>
+    <h2>VIAJES</h2>
+    @using (Ajax.BeginForm("Filtro", "Viaje", null, new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "TablaViajesDiv",
+        InsertionMode = InsertionMode.Replace
+    }, new { @id = "frmViaje" }))
+    {
+        <div class="Formulario BackGrounds">
+            <div>
+                <span><label>FILTRAR POR LUGAR DE ORIGEN:</label></span>
+            </div>
+            <div>
+                @Html.DropDownList("IDLugarOrigenParam", ListaLugarOri)
+            </div>
+        </div>
+
+        <div id="TablaViajesDiv">
+            @Html.Partial("_TablaViajes", Model)
+        </div>
+    }
+
+    <div class="BackGrounds CRUDContainer">
+        <button class="botonMoy boton" onclick="AgregarV()">AGREGAR</button>
+    </div>
+
+    <dialog id="ModalCRUD" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2></h2>
+            </div>
+
+            @using (Ajax.BeginForm("Guardar", "Viaje", null, new AjaxOptions
+            {
+                HttpMethod = "POST",
+                OnSuccess = "Guardar",
+                UpdateTargetId = "ErroresDv"
+            }, new {enctype ="multipart/form-data"}))
+            {
+                <div id="ErroresDv"></div>
+                <div class="Formulario">
+                    <div>
+                        <span><label>LUGAR DE ORIGEN:</label></span>
+                    </div>
+                    <div>
+                        @Html.DropDownList("IDLugarOrigen", ListaLugarOri)
+                    </div>
+                    <div>
+                        <span><label>LUGAR DE DESTINO:</label></span>
+                    </div>
+                    <div>
+                        @Html.DropDownList("IDLugarDestino", ListaLugarDes)
+                    </div>
+                    <div>
+                        <span> <label>ID BUS:</label></span>
+                    </div>
+                    <div>
+                        @Html.DropDownList("IDBus", ListaBus)
+                    </div>
+                    <div>
+                        <span><label>PRECIO:</label></span>
+                    </div>
+                    <div>
+                        @Html.Editor("Precio", null, new { htmlAttributes = new { @type = "number" } })
+                    </div>
+                    <div>
+                        <span><label>FECHA DE VIAJE:</label></span>
+                    </div>
+                    <div>
+                        @Html.Editor("FechaViaje", null, new { htmlAttributes = new { @type = "datetime-local" } })
+                    </div>
+                    <div>
+                        <span><label>NÚMERO DE ASIENTOS DISPONIBLES:</label></span>
+                    </div>
+                    <div>
+                        @Html.Editor("NumAsientosDisponibles", null, new { htmlAttributes = new { @type = "number" } })
+                    </div>
+                    <div>
+                        <span><label>FOTO:</label></span>
+                    </div>
+                    <div>
+                        <img id="fotoForm"/>
+                        @Html.TextBox("Foto", null, new { @type = "file", @id = "fupFoto" })
+                    </div>
+                    @Html.Hidden("Puente")
+                    @Html.Hidden("nombreFoto")
+                </div>
+
+                <div>
+                    <button class="botonMoy boton" onclick="" id="btnCancelCrud" type="submit">CANCELAR</button>
+                    <button class="botonMoy boton" onclick="" id="btnEnviar" type="submit">ACEPTAR</button>
+                </div>
+            }
+        </div>
+    </dialog>
+
+    <dialog id="ModalVEl" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>¿Desea eliminar los datos?</h2>
+            </div>
+
+            <div>
+                <button class="botonMoy boton" id="btnCancelarEliminar" type="button">CANCELAR</button>
+                <button class="botonMoy boton" onclick="EliminarV()" type="button">ELIMINAR</button>
+            </div>
+        </div>
+    </dialog>
+</main>
+
+<script>
+
+    const FiltroDrp = document.getElementById("IDLugarOrigenParam");
+
+    const btnCancelCrud = document.getElementById("btnCancelCrud");
+    const btnCancelarEliminar = document.getElementById("btnCancelarEliminar");
+    const btnEnviar = document.getElementById("btnEnviar");
+
+    const ModalCRUD = document.getElementById("ModalCRUD");
+    const ModalVEl = document.getElementById("ModalVEl");
+    const H2ModalCRUD = document.querySelector("#ModalCRUD H2");
+    const imgContent = document.querySelector(".Formulario img");
+    const fotoForm = document.getElementById("fotoForm");
+    const fupFoto = document.getElementById("fupFoto");
+
+    BotonCancelar();
+
+    FiltroDrp.onchange = () => {
+        $("#frmViaje").trigger("submit");
+    }
+
+    fupFoto.onchange = () => {
+
+        const FotoCargada = fupFoto.files[0];
+        const lector = new FileReader();
+        lector.onloadend = () => fotoForm.src = lector.result;
+        lector.readAsDataURL(FotoCargada);
+
+        document.getElementById("nombreFoto").value = FotoCargada.name;
+    }
+
+    function Guardar(respuesta) {
+        if (respuesta == "1" || respuesta == "0") {
+            $("#frmViaje").trigger("submit");
+            alert("Se ejecutó de forma correcta.");
+            ModalCRUD.close();
+        }
+        else {
+            alert("Ocurrió un error.");
+        }
+    }
+
+    function BotonCancelar() {
+        btnCancelCrud.onclick = (e) => {
+            e.preventDefault();
+            ModalCRUD.close();
+        }
+        btnCancelarEliminar.onclick = (e) => {
+            e.preventDefault();
+            ModalVEl.close();
+        }
+    }
+
+    function EditarVi(id)
+    {
+        LimpiarCampos();
+
+        document.getElementById("Puente").value = id;
+
+        $.get("Viaje/CapturarDatos/?Puente=" + id, (data) => {
+
+            document.getElementById("IDLugarOrigen").value = data.IDLugarOrigen;
+            document.getElementById("IDLugarDestino").value = data.IDLugarDestino;
+            document.getElementById("IDBus").value = data.IDBus;
+            document.getElementById("Precio").value = data.Precio;
+            document.getElementById("FechaViaje").value = data.FechaViajeCadena;
+            document.getElementById("NumAsientosDisponibles").value = data.NumAsientosDisponibles;
+            fotoForm.src = "data:image/" + data.Extension + ";base64," + data.CadenaFotoRecuperada;
+        });
+
+        H2ModalCRUD.textContent = "EDITAR VIAJE";
+        ModalCRUD.showModal();
+    }
+
+    function EliminarV() {
+
+        let id = document.getElementById("Puente").value;
+
+        $.get("Viaje/Eliminar/?Puente="+id, (data) => {
+            if (data == "1") {
+                alert("Se eliminaron los datos, de forma correcta.");
+                $("#frmViaje").trigger("submit");
+                ModalVEl.close();
+            }
+            else {
+                alert("Ocurrió un error.");
+            }
+        });
+    }
+
+    function EliminarPopUpV(id) {
+
+        document.getElementById("Puente").value = id;
+
+        ModalVEl.showModal();
+    }
+    
+    function AgregarV()
+    {
+        LimpiarCampos()
+        document.getElementById("Puente").value = -1;
+        H2ModalCRUD.textContent = "AGREGAR VIAJE";
+        ModalCRUD.showModal();
+    }
+
+    function LimpiarCampos() {
+
+        document.getElementById("IDLugarOrigen").value = "";
+        document.getElementById("IDLugarDestino").value = "";
+        document.getElementById("IDBus").value = "";
+        document.getElementById("Precio").value = "";
+        document.getElementById("FechaViaje").value = "";
+        document.getElementById("NumAsientosDisponibles").value = "";
+        document.getElementById("ErroresDv").innerHTML = "";
+        fotoForm.src = "";
+    }
+
+</script>
+

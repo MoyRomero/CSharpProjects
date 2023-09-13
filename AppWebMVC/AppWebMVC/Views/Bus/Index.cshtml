@@ -1,0 +1,85 @@
+﻿@using AppWebMVC.Models
+@model List<CBUS>
+@{
+    ViewBag.Title = "Index";
+
+    List<SelectListItem> ListaSucursal = (List<SelectListItem>)ViewBag.listaSucursal;
+    List<SelectListItem> ListaModelo = (List<SelectListItem>)ViewBag.listaModelo;
+
+}
+
+<main>
+    <h2>BUS</h2>
+
+    @using(Html.BeginForm("Index", "Bus", FormMethod.Post, new { @id = "formBusquedaBus" }))
+    {        
+        <div class="ContenedorBusquedaBus BackGrounds">
+            <h2>FILTRAR POR CARACTERÍSTICAS</h2>
+            <div>
+                <label>FILTRO DE PLACA:</label>
+                @Html.TextBox("Placa",null, new {@placeholder="CLAVE: PLACA"})
+            </div>
+
+            <div>
+                <label>FILTRO DE SUCURSAL:</label>
+                @Html.DropDownList("IDSucursal", ListaSucursal)
+            </div>
+
+            <div>
+                <label>FILTRO DE MODELO:</label>
+                @Html.DropDownList("IDModelo",ListaModelo)
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>@Html.LabelFor(x => Model[0].IDBus)</td>
+                    <td>@Html.LabelFor(x => Model[0].Placa)</td>
+                    <td>@Html.LabelFor(x => Model[0].Modelo)</td>
+                    <td>@Html.LabelFor(x => Model[0].Sucursal)</td>
+                    <td>@Html.LabelFor(x => Model[0].TipoBus)</td>
+                    <td>@Html.LabelFor(x => Model[0].Marca)</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IDBus</td>
+                        <td>@item.Placa</td>
+                        <td>@item.Modelo</td>
+                        <td>@item.Sucursal</td>
+                        <td>@item.TipoBus</td>
+                        <td>@item.Marca</td>
+                        <td>@Html.ActionLink(" ", "Editar", "Bus", new { id = item.IDBus }, new { @class = "fa-solid fa-pen scaleIcon btn", @style = "color:#fffe" })</td>
+                        <td><button class="fa-solid fa-trash scaleIcon transparent" onclick="EliminarPopUp(@item.IDBus)" style="color:#fffe"></button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @using (Html.BeginForm("Eliminar", "Bus", FormMethod.Post, new { @id = "frmEliminar" }))
+    {@Html.Hidden("idElemento");
+}
+
+    <div class="BackGrounds CRUDContainer">
+        @Html.ActionLink("AGREGAR DATOS", "Agregar", "Bus", null, new { @class = "botonMoy" })
+    </div>
+</main>
+
+<script>
+    const formBusquedaBus = document.getElementById("formBusquedaBus");
+    const Placa = document.getElementById("Placa");
+    const IDSucursal = document.getElementById("IDSucursal");
+    const IDModelo = document.getElementById("IDModelo");     
+
+    Placa.onkeyup = () => formBusquedaBus.submit();
+    IDSucursal.onchange = () => formBusquedaBus.submit();
+    IDModelo.onchange = () => formBusquedaBus.submit();
+
+</script>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/fontawesome/css/all.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+
+    <script src="~/Scripts/Generico.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div id="MenuBtn">
+                <button class="fa-solid fa-bars icono"></button>
+            </div>
+            <div id="ActionLinks">
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "fa-solid fa-house" })
+                @Html.ActionLink(" ", "Index", "TipoHabitacion", new { area = "" }, new { @class = "fa-sharp fa-solid fa-user" })
+                @Html.ActionLink(" ", "Index", "TipoHabitacion", new { area = "" }, new { @class = "fa-solid fa-hotel" })
+                @Html.ActionLink("CAMAS", "Index", "Cama", new { area = "" }, new { @class = "" })
+                @Html.ActionLink("MARCAS", "Index", "Marca", new { area = "" }, new { @class = "" })
+
+            </div>
+        </nav>        
+    </header>
+
+    <div id="NavLateral" class="NavLateral">
+        <div class="divNav">
+            <div>
+                <nav>
+                    <div id="ActionLinks">
+                        @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "fa-solid fa-house" })
+                        @Html.ActionLink(" ", "Index", "TipoHabitacion", new { area = "" }, new { @class = "fa-sharp fa-solid fa-user" })
+                        @Html.ActionLink(" ", "Index", "TipoHabitacion", new { area = "" }, new { @class = "fa-solid fa-hotel" })
+                        @Html.ActionLink("CAMAS", "Index", "Cama", new { area = "" }, new { @class = "" })
+                        @Html.ActionLink("MARCAS", "Index", "Marca", new { area = "" }, new { @class = "" })
+                    </div>
+                </nav>
+            </div>
+            <div>
+                <button id="btnCloseNav" class="fa-solid fa-rectangle-xmark icono"></button>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <footer>
+        <div id="HoraAutomatica">
+            <p>&copy; <span></span> <span></span> - <span></span>:<span></span>:<span></span></p>
+        </div>
+        <span id="Raiz" style="display:none">@Url.Content("~")</span>
+    </footer>
+
+    <script src="~/Scripts/RelojLayout.js"></script>
+    <script src="~/Scripts/navResponsive.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery3.6.4.min.js"></script>
+</body>
+</html>

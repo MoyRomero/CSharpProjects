@@ -1,0 +1,129 @@
+﻿@using AppWebMVC.Models
+@model CBUS 
+@{
+    ViewBag.Title = "Agregar";
+    List<SelectListItem> ListaSucursal = (List<SelectListItem>)ViewBag.listaSucursal;
+    List<SelectListItem> ListaBus = (List<SelectListItem>)ViewBag.listaBus;
+    List<SelectListItem> ListaMarca = (List<SelectListItem>)ViewBag.listaMarca;
+    List<SelectListItem> ListaModelo = (List<SelectListItem>)ViewBag.listaModelo;
+}
+
+<main>
+    <h2>AGREGAR BUS</h2>
+
+    @using (Html.BeginForm("Agregar", "Bus", FormMethod.Post, new { @id = "formAgreg" }))
+    {
+    <div class="Add-Data-Container BackGrounds">
+
+        <div class="Columna_3">
+            <h2>AÑADIR DATOS</h2>
+        </div>
+
+        <div>
+            <span> @Html.LabelFor(x => x.Sucursal): </span>
+        </div>
+
+        <div>
+            @Html.DropDownList("IDSucursal", ListaSucursal)
+        </div>
+
+        <div class="Columna_3 WarningText">
+            @Html.ValidationMessage("Sucursal")
+        </div>
+
+        <div>
+            <span> @Html.LabelFor(x => x.Placa): </span>
+        </div>
+
+        <div>
+            @Html.TextBoxFor(x => x.Placa, new { @placeholder = "Escribir clave" })
+        </div>
+
+        <div class="Columna_3 WarningText">
+            @Html.ValidationMessage("Placa")
+            @if(Model != null && Model.MensajeErrorPlaca != null)
+                {
+                    <span>@Model.MensajeErrorPlaca</span>
+                }
+        </div>
+
+        <div>
+            <span> @Html.LabelFor(x => x.TipoBus): </span>
+        </div>
+
+        <div>
+            @Html.DropDownList("IDTipoBus", ListaBus)
+        </div>
+
+        <div class="Columna_3 WarningText">
+            @Html.ValidationMessage("TipoBus")
+        </div>
+
+        <div>
+            <span> @Html.LabelFor(x => x.Marca): </span>
+        </div>
+
+        <div>
+            @Html.DropDownList("IDMarca", ListaMarca)
+        </div>
+
+        <div class="Columna_3 WarningText">
+            @Html.ValidationMessage("Marca")
+        </div>
+
+        <div>
+            <span> @Html.LabelFor(x => x.Modelo): </span>
+        </div>
+
+        <div>
+            @Html.DropDownList("IDModelo", ListaModelo)
+        </div>
+
+        <div class="Columna_3 WarningText">
+            @Html.ValidationMessage("Modelo")
+        </div>
+
+        <div>
+            <span> @Html.LabelFor(x => x.FechaCompra): </span>
+        </div>
+
+        <div>
+            @Html.EditorFor(x => x.FechaCompra)
+        </div>
+
+        <div class="Columna_3 WarningText">
+            @Html.ValidationMessage("FechaCompra")
+        </div>
+
+        <div>
+            <span> @Html.LabelFor(x => x.NumeroFilas): </span>
+        </div>
+
+        <div>
+            @Html.EditorFor(x => x.NumeroFilas)
+        </div>
+
+        <div class="Columna_3 WarningText">
+            @Html.ValidationMessage("NumeroFilas")
+        </div>
+
+        <div>
+            <span> @Html.LabelFor(x => x.NumeroColumnas): </span>
+        </div>
+
+        <div>
+            @Html.EditorFor(x => x.NumeroColumnas)
+        </div>
+
+        <div class="Columna_3 WarningText">
+            @Html.ValidationMessage("NumeroColumnas")
+        </div>
+
+        <div>
+            <input type="submit" value="AGREGAR" class=" botonMoy boton" />
+        </div>
+    </div>
+    }
+</main>
+
+

@@ -1,0 +1,51 @@
+﻿
+@using AppWebMVC.Models;
+@model List<CRESERVA>
+
+<table>
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(x => Model[0].IDViaje)</td>
+            <td>@Html.LabelFor(x => Model[0].LugarOrigen)</td>
+            <td>@Html.LabelFor(x => Model[0].LugarDestino)</td>
+            <td>@Html.LabelFor(x => Model[0].FechaViaje)</td>
+            <td>@Html.LabelFor(x => Model[0].Precio)</td>
+            <td>@Html.LabelFor(x => Model[0].PlacaBus)</td>
+            <td>@Html.LabelFor(x => Model[0].DescripcionBus)</td>
+            <td>@Html.LabelFor(x => Model[0].AsientosDisponibles)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+            {
+                
+            
+            <div id="ReservasContenedor">
+
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <tr>
+                    <td>@item.IDViaje</td>
+                    <td>@item.LugarOrigen</td>
+                    <td>@item.LugarDestino</td>
+                    <td>@item.FechaViaje</td>
+                    <td>@item.Precio</td>
+                    <td>@item.PlacaBus</td>
+                    <td>@item.DescripcionBus</td>
+                    <td>@item.AsientosDisponibles</td>
+                </tr>
+            }
+    </tbody>
+</table>

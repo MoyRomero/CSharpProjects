@@ -1,0 +1,15 @@
+C:\Users\moyro\source\repos\AplicacionPractica\bin\Debug\net6.0\AplicacionPractica.exe
+C:\Users\moyro\source\repos\AplicacionPractica\bin\Debug\net6.0\AplicacionPractica.deps.json
+C:\Users\moyro\source\repos\AplicacionPractica\bin\Debug\net6.0\AplicacionPractica.runtimeconfig.json
+C:\Users\moyro\source\repos\AplicacionPractica\bin\Debug\net6.0\AplicacionPractica.dll
+C:\Users\moyro\source\repos\AplicacionPractica\bin\Debug\net6.0\AplicacionPractica.pdb
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\AplicacionPractica.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\AplicacionPractica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\AplicacionPractica.AssemblyInfoInputs.cache
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\AplicacionPractica.AssemblyInfo.cs
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\AplicacionPractica.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\AplicacionPractica.dll
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\refint\AplicacionPractica.dll
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\AplicacionPractica.pdb
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\AplicacionPractica.genruntimeconfig.cache
+C:\Users\moyro\source\repos\AplicacionPractica\obj\Debug\net6.0\ref\AplicacionPractica.dll

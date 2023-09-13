@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2023-06-01T22:25:40.1289376Z"
+    },
+    "appInsights1": {
+      "restored": true,
+      "restoreTime": "2023-06-01T22:27:01.5438029Z"
+    }
+  },
+  "parameters": {
+    "appInsights1.resourceGroupName": {
+      "Name": "appInsights1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "PeliculasAPI"
+    },
+    "appInsights1.subscriptionId": {
+      "Name": "appInsights1.subscriptionId",
+      "Type": "subscription",
+      "Value": "be9cf0af-4c4c-4d1f-a8d1-623ea9b5289b"
+    }
+  }
+}

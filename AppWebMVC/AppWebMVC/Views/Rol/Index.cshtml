@@ -1,0 +1,180 @@
+﻿@using AppWebMVC.Models
+@model List<CROL>
+@{
+    ViewBag.Title = "ROL";
+}
+
+<main>
+    <h2>ROL</h2>
+
+    @using (Ajax.BeginForm("Filtro", "", new AjaxOptions
+    {   HttpMethod = "POST", 
+        UpdateTargetId = "divTablaRol", 
+        InsertionMode = InsertionMode.Replace }, new { @id = "frmFiltroRol" }))
+    {
+        <div class="BackGrounds Formulario">
+            <div>
+                <span><label>FILTRAR POR NOMBRE:</label></span>
+                <span>@Html.TextBox("Nombre")</span>
+            </div>
+        </div>
+
+        <div id="divTablaRol">
+            @Html.Partial("_TablaRol", Model)
+        </div>
+    }
+
+    <div class="BackGrounds CRUDContainer">
+        <button class="botonMoy boton" onclick="AgregarRol()">AGREGAR</button>
+    </div>
+
+    <dialog id="AgregarRolDialogo" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2 id="h2Modal"></h2>
+            </div>
+
+            @using (Ajax.BeginForm("Guardar", "Rol", null, new AjaxOptions
+            {
+                HttpMethod = "POST",
+                OnSuccess = "Guardar",
+                UpdateTargetId = "Errores"
+            }))
+            {
+                <div id="Errores"></div>
+
+                <div class="Formulario">
+                    <div>
+                        <span><label>NOMBRE:</label></span>
+                        @Html.TextBox("NOMBRE", null, new { @placeholder = "Ingrese: NOMBRE" })
+                    </div>
+
+                    <div>
+                        <span><label>DESCRIPCIÓN:</label></span>
+                        @Html.TextArea("Descripcion", null, new { @placeholder = "Ingrese: DESCRIPCIÓN" })
+                    </div>
+                    @Html.Hidden("Puente")
+                </div>
+                <div>
+                    <button class="botonMoy boton" onclick="" id="btnCancelarModalRol" type="submit">CANCELAR</button>
+                    <button class="botonMoy boton" onclick="" id="btnAgregarRol" type="submit">ACEPTAR</button>
+                </div>
+            }
+        </div>
+    </dialog>
+
+    <dialog id="ModalREl" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>¿Desea eliminar los datos?</h2>
+            </div>
+
+            <div>
+                <button class="botonMoy boton" onclick="CancelarREl()" type="button">CANCELAR</button>
+                <button class="botonMoy boton" onclick="EliminarR()" type="button">ELIMINAR</button>
+            </div>
+        </div>
+    </dialog>
+
+</main>
+
+<script>
+
+    //CAJAS DE TEXTO
+    const NombreTxtFiltro = document.getElementById("Nombre");
+    const NombreTxtEditar = document.getElementById("NOMBRE");
+    const DescripTxtEditar = document.getElementById("Descripcion");
+
+    //MODAL
+    const ModalRol = document.getElementById("AgregarRolDialogo");
+    const btnAgregarRol = document.getElementById("btnAgregarRol");
+    const btnCancelarModalRol = document.getElementById("btnCancelarModalRol");
+    const h2Modal = document.getElementById("h2Modal");
+
+    //MODAL EL
+    const ModalREl = document.getElementById("ModalREl");
+
+    //INFO CONTROLADOR
+    const Puente = document.getElementById("Puente");
+    const Errores = document.getElementById("Errores");
+
+
+    NombreTxtFiltro.onkeyup = () => {
+        $("#frmFiltroRol").trigger("submit");
+    }
+
+    btnCancelarModalRol.onclick = (e) => {
+        e.preventDefault();
+        ModalRol.close();
+    }
+
+    function LimpiarCampos(){
+        NombreTxtEditar.value = "";
+        DescripTxtEditar.value = "";
+        Errores.innerHTML = "";
+    }
+
+    function Guardar(respuesta) {
+        if (respuesta == "1" || respuesta == "0") {
+            $("#frmFiltroRol").trigger("submit");
+            alert("Se agregó la información a la base de datos, de forma correcta.");
+            ModalRol.close();
+        }
+        else alert("Ocurrió un error.");
+    }
+
+    function EditarRol(id) {
+
+        LimpiarCampos();
+
+        h2Modal.textContent = "EDITANDO ROL";
+        console.log(id);
+
+        Puente.value = id;
+
+        $.get("Rol/CapturarDatos/?Puente=" + id, function (data) {
+            NombreTxtEditar.value = data.NOMBRE;
+            DescripTxtEditar.value = data.Descripcion;
+        })
+
+        ModalRol.showModal();
+    }
+
+    function AgregarRol(){
+
+        LimpiarCampos();
+
+        h2Modal.textContent = "AGREGAR NUEVO ROL";
+
+        document.getElementById("Puente").value = -1;
+
+        ModalRol.showModal();
+    };
+
+    function EliminarR() {
+
+        let id = Puente.value;
+
+        $.get("Rol/Eliminar/?IDRol=" + id, (data) => {
+            if (data == "1") {
+                alert("Se eliminaron los datos, de forma correcta.")
+                $("#frmFiltroRol").trigger("submit");
+                ModalREl.close();
+            }
+            else {
+                alert("Ocurrió un error.");
+            }
+        });
+    }
+
+    function EliminarPopUpR(id) {
+
+        Puente.value = id;
+
+        ModalREl.showModal();
+    }
+
+    const CancelarREl = () => ModalREl.close();
+
+
+</script>

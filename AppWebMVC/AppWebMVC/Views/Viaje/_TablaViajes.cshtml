@@ -1,0 +1,34 @@
+﻿@using AppWebMVC.Models
+@model List<CVIAJE>
+<table>
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(x => Model[0].IDViaje)</td>
+            <td>@Html.LabelFor(x => Model[0].LugarOrigen)</td>
+            <td>@Html.LabelFor(x => Model[0].LugarDestino)</td>
+            <td>@Html.LabelFor(x => Model[0].Precio)</td>
+            <td>@Html.LabelFor(x => Model[0].FechaViaje)</td>
+            <td>@Html.LabelFor(x => Model[0].IDBus)</td>
+            <td>@Html.LabelFor(x => Model[0].NumAsientosDisponibles, null, new { @id = "FS-Mod" })</td>
+            <td>Editar</td>
+            <td>Eliminar</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IDViaje</td>
+                <td>@item.LugarOrigen</td>
+                <td>@item.LugarDestino</td>
+                <td>@item.Precio</td>
+                <td>@item.FechaViaje</td>
+                <td>@item.IDBus</td>
+                <td>@item.NumAsientosDisponibles</td>
+                <td><button class="fa-solid fa-pen scaleIcon btn transparent" onclick="EditarVi(@item.IDViaje)" style="color:#fffe"></button></td>
+                <td><button class="fa-solid fa-trash scaleIcon transparent" onclick="EliminarPopUpV(@item.IDViaje)" style="color:#fffe"></button></td>
+            </tr>
+        }
+    </tbody>
+</table>

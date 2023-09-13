@@ -1,0 +1,167 @@
+﻿body{
+    width:100%;
+    max-height:100vh;
+    display:grid;
+    grid-template-rows:10vh minmax(80vh 1fr) 10vh;
+}
+
+header{
+    grid-row:1/2;
+}
+
+main{
+    grid-row:2/3;
+}
+
+footer{
+    grid-row:3/4;
+}
+
+.containerStyle {
+    background: #0001;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 1px #000;
+}
+
+dialog{
+    background:#fff !important;
+    border:none;
+    padding:0px;
+    border-radius:5px;
+}
+
+.btnsModal{    
+    grid-column:1/3;
+    display: flex;
+    width:100%;
+    height:auto;
+    justify-content:space-evenly;
+    margin:auto;
+    padding:10px;
+}
+    .boton_1 {
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 4px 2px #0007;
+        transition-duration:.4s;
+        transition-property:background-color transform;
+    }
+    .boton_1:focus {
+        box-shadow: 0px 0px 10px 2px #0009;
+        outline: none;
+    }
+    .boton_1:hover {
+        box-shadow: 0px 0px 10px 2px #0009;
+    }
+    .boton_1:active {
+        transform:scale(1.2);
+    }
+
+.datosAlumno {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+    max-width: 400px;
+}
+    .datosAlumno input,
+    .datosAlumno label,
+    .datosAlumno select{
+        margin:5px;
+    }
+
+    .fotoForm{
+        display:flex;
+        flex-wrap:wrap;
+        border-radius:5px;
+        background:#0001;
+        box-shadow:0px 0px 5px 1px #0005;
+        width:90%;
+        height:auto;
+        max-height:150px;
+        margin:5px auto 5px auto;
+        padding:2px;
+    }
+    .fotoForm label{
+        text-align:center;
+        width:100%;
+    }
+    .fotoForm img{
+        object-fit:cover;
+        margin:auto auto 5px auto;
+        background:#0004;
+        width:100px;
+        height:100px;
+    }
+    #imgDatosContainer{
+        object-fit:cover;
+        margin:auto auto 5px auto;
+        background:#0004;
+        width:100px;
+        height:100px;
+    }
+    .fotoForm input{
+        width:50%;
+        height:30px;
+        margin:auto;
+    }
+
+.infoAlumnosContainer {
+    display:flex;
+    flex-wrap:wrap;
+    margin: 5% auto 5% auto;
+    width: 100%;
+    max-width: 400px;
+    height:auto;
+    /*border: 1px solid green;*/
+}
+    .infoAlumnosContainer select{
+        
+        width:100%;
+        max-width:250px;
+        min-width:200px;
+        max-height:30px;
+        margin:auto;
+    }
+
+.btnAgregarContainer{
+    display:flex;
+    margin:10px auto 10px auto;
+    padding:0px;
+    width:100%;
+    height:auto;
+    justify-content:space-evenly;
+}
+
+.DivErrores{
+    
+    border:1px solid green;
+    grid-column:1/3;
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+    height:auto;
+    color:#f22;
+    text-shadow:0px 0px 2px #0009;
+}
+
+.dtosComboBusqueda{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:center;
+    width:100%;
+}
+
+select, input, textarea {
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0px 0px 4px 1px #0003;
+}
+
+    select:focus, input:focus, textarea:focus {
+        outline: none;
+        box-shadow:0px 0px 6px 1px #0009;
+    }

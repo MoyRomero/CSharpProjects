@@ -1,0 +1,58 @@
+﻿@using AppWebMVC.Models;
+@model List<CEMPLEADO>
+@{
+    ViewBag.Title = "Index";
+    List<SelectListItem> ListaTU = (List<SelectListItem>)ViewBag.Lista_tu;
+}
+
+<main>
+    <h2>EMPLEADOS</h2>
+    @using (Html.BeginForm("Index", "Empleado", FormMethod.Get, new { @id = "formSensCombBx" }))
+    {
+        <div class="ContenedorBusqueda BackGrounds">
+            <label>FILTRAR (POR SEXO):</label>
+            @Html.DropDownList("IDTipoDeUsuario", ListaTU)
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>@Html.LabelFor(x => Model[0].IDEmpleado)</td>
+                    <td>@Html.LabelFor(x => Model[0].NOMBRE)</td>
+                    <td>@Html.LabelFor(x => Model[0].Sexo)</td>
+                    <td>@Html.LabelFor(x => Model[0].TipoContrato, null, new { @id = "FS-Mod" })</td>
+                    <td>@Html.LabelFor(x => Model[0].TipoDeUsuario)</td>
+                    <td>@Html.LabelFor(x => Model[0].Sueldo)</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IDEmpleado</td>
+                        <td>@item.NOMBRE @item.APPaterno @item.APMaterno</td>
+                        <td id="FS-Mod">@item.Sexo</td>
+                        <td id="FS-Mod">@item.TipoContrato</td>
+                        <td>@item.TipoDeUsuario</td>
+                        <td>@item.Sueldo</td>
+                        <td>@Html.ActionLink(" ", "Editar", "Empleado", new { id = item.IDEmpleado }, new { @class = "fa-solid fa-pen scaleIcon", @style = "color:#fffe" })</td>
+                        <td><button class="fa-solid fa-trash scaleIcon transparent" onclick="EliminarPopUp(@item.IDEmpleado)" style="color:#fffe"></button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @using (Html.BeginForm("Eliminar", "Empleado", FormMethod.Post, new { @id = "frmEliminar" }))
+    {@Html.Hidden("idElemento");
+}
+
+
+    <div class="BackGrounds CRUDContainer">
+        @Html.ActionLink("AGREGAR DATOS", "Agregar", "Empleado", null, new { @class = "botonMoy" })
+    </div>
+</main>
+

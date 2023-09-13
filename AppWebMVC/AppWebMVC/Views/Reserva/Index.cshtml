@@ -1,0 +1,190 @@
+﻿@using AppWebMVC.Models;
+@model List<CRESERVA>
+
+@{
+    ViewBag.Title = "RESERVAS";
+    string[] ArrayID = { };
+    string[] ArrayInfo = { };
+
+    if(ViewBag.pasajesid !=null && ViewBag.pasajesinfo != null)
+    {
+        ArrayID = ((string)ViewBag.pasajesid).Split('{');
+        ArrayInfo = ((string)ViewBag.pasajesinfo).Split('{');
+    }
+
+    List<SelectListItem> ListaLugarOri = (List<SelectListItem>)ViewBag.ListaFiltroVB;
+}
+
+<main>
+    <h2>RESERVAS</h2>
+    @using (Ajax.BeginForm("Filtro", "Reserva", null, new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "DivTablaReservas",
+        InsertionMode = InsertionMode.Replace
+    }, new { @id = "frmReserva" }))
+    {
+        <div class="Formulario BackGrounds">
+            <div>
+                <span><label>FILTRAR POR LUGAR DE ORIGEN:</label></span>
+            </div>
+            <div>
+                @Html.DropDownList("IDLugarOrigenParam", ListaLugarOri)
+            </div>
+        </div>
+
+        <div class="ReservasContenedor">
+
+           @foreach (var item in Model)
+            {
+                string FotoCadena = @Convert.ToBase64String(@item.Foto);
+                string Extension = @Path.GetExtension(@item.NombreFoto);
+
+                string CadenaCompletaFoto = "data:image/" + Extension + ";base64," + FotoCadena;
+
+                <div id="Container_@item.IDViaje" 
+                     
+                     @{  string Clase = "";
+                         bool ReadOnly = false;
+
+                         if(ArrayID.Contains(item.IDViaje.ToString()))
+                         {
+                             Clase = " Reservado";
+                             ReadOnly = true;
+                         }
+
+                    } class="BackGrounds ContenedorViaje @Clase">
+
+                    <div>
+                        <img src="@CadenaCompletaFoto"/>
+                    </div>
+                    <div>
+                        <div>
+                            <span><label>SALIDA: @item.LugarOrigen</label></span>
+                        </div>
+                        <div>
+                            <span><label>DESTINO: @item.LugarDestino</label></span>
+                        </div>
+                        <div>
+                            <span><label>BUS: @item.PlacaBus</label></span>
+                        </div>
+                        <div>
+                            <span><label>PRECIO: $@item.Precio</label></span>
+                        </div>
+                        <div>
+                            <span><label>FECHA DE SALIDA: @item.FechaViaje</label></span>
+                        </div>
+                        <div>
+                            <span><label>ASIENTOS DISPONBLES: @item.AsientosDisponibles / @item.TotalAsientos</label></span>
+                        </div>
+                        <div class="AccionesReserva">
+                            <span>
+                                <label>RESERVAR ASIENTOS:</label>
+                                <input id="CantidadReserva" type="number"/>
+                            </span>
+                            <div class="BotonesReserva">
+                                <button id="btnReservar" onclick="Reservar(@item.AsientosDisponibles,
+                                    @item.TotalAsientos,@item.IDViaje, '@item.LugarOrigen', '@item.LugarDestino',
+                                    '@item.FechaViaje',@item.Precio,@item.IDBus)" 
+                                        class="botonMoy">RESERVAR</button>                                
+                                <button id="btnCancelar" style="display:none;" onclick="CancelarReserva(@item.IDViaje)" class="botonMoy">CANCELAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>          
+            }
+        </div>
+    }
+</main>
+
+<script>
+
+    RemoverBotones();
+
+    function Reservar(AsientosDisponibles,TotalAsientos,IDviaje,Origen,Destino,fecha,Precio,IDBus) {
+
+        const AsientosReservados = document.querySelector("#Container_" + IDviaje + " #CantidadReserva").value;
+
+        if (AsientosReservados > AsientosDisponibles) {
+            alert(`Tu cantidad de asientos a reservar (${AsientosReservados}), no puede ser mayor que la cantidad de asientos disponibles: ${AsientosDisponibles}.`);
+            return;
+        }
+        if (AsientosReservados <= 0) {
+            alert("La cantidad de reserva de asientos, debe ser mayor que 0");
+            return;
+        }
+        if (AsientosDisponibles <= 0) {
+            alert("No hay más asientos disponibles para reservar.");
+            return;
+        }
+        else {
+
+            if (confirm(`¿Realmente desea realizar la reserva por ${AsientosReservados} asientos?`) == true) {
+
+                const URL = "Reserva/CrearCookie/?IDViaje="+IDviaje+"&AsientosReservados="+AsientosReservados+
+                    "&Origen="+Origen+"&Destino="+Destino+"&fecha="+fecha+"&Precio="+Precio+"&IDBus="+IDBus;
+
+                $.get(URL, (data) => {
+                    if (data == "1") {
+                        alert("La información se almacenó de forma correcta.");                        
+                    }
+                    else {
+                        alert("Ocurrió un error: " + data);
+                        return;
+                    }
+                });
+
+                document.querySelector("#Container_" + IDviaje + " #CantidadReserva").readOnly = true;
+                document.getElementById("Container_"+IDviaje).classList.add("Reservado");
+                console.log("Clase agregada.")
+            };
+
+            RemoverBotones();
+        }
+    }   
+
+    function CancelarReserva(IDviaje){
+
+        const AsientosReservados = document.querySelector("#Container_" + IDviaje + " #CantidadReserva").value;
+
+        if (confirm(`¿Realmente desea cancelar su viaje con la cantidad de ${AsientosReservados} asientos reservados?`) == true) {
+
+            const URL = "Reserva/RemoverCookies/?IDviaje=" + IDviaje;
+
+            $.get(URL, (data) => {
+
+                if (data == "1") {
+                    alert("Se ha cancelado la reservación, de forma correcta.");
+                    document.querySelector("#Container_" + IDviaje).classList.remove("Reservado");
+                    RemoverBotones();
+                }
+                else {
+                    alert(`Ocurrió un error: ${data}`);
+                }
+            });
+            
+        }
+    }
+
+    function RemoverBotones() {
+
+        document.querySelectorAll("#btnReservar").forEach(btnAgregar => { btnAgregar.style.display = "block"; });
+
+        document.querySelectorAll("#CantidadReserva").forEach(ReadO => { ReadO.removeAttribute("readonly") });
+
+        document.querySelectorAll("#btnCancelar").forEach(btnCancelar => { btnCancelar.style.display = "none"; });
+
+
+        document.querySelectorAll(".Reservado #btnReservar").forEach(btnAgregar => { btnAgregar.style.display = "none"; });
+
+        document.querySelectorAll(".Reservado #CantidadReserva").forEach(ReadO => { ReadO.readOnly = true; });
+
+        document.querySelectorAll(".Reservado #btnCancelar").forEach(btnCancelar => {
+            btnCancelar.style.display = "block";
+            btnCancelar.textContent = "CANCELAR RESERVA";
+        });
+    }
+
+</script>
+
+

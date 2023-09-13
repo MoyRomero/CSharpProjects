@@ -1,0 +1,76 @@
+﻿@using AppWebMVC.Models
+@model CSUCURSAL
+@{
+    ViewBag.Title = "Agregar";
+} 
+
+<main>
+    <h2>AGREGAR SUCURSAL</h2>
+
+    @using (Html.BeginForm("Agregar", "Sucursal", FormMethod.Post, new { @id = "formAgreg" }))
+    {
+        <div class="Add-Data-Container BackGrounds">
+
+            <div class="Columna_3">
+                <h2>AÑADIR DATOS</h2>
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.NOMBRE):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.NOMBRE)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("NOMBRE")
+                @if (Model != null && Model.MensajeErrorNombre != null)
+                {
+                    <span>@Model.MensajeErrorNombre</span>
+                }
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.DireccSucursal):</span>
+            </div>
+            <div>
+                @Html.TextAreaFor(x => x.DireccSucursal)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("DireccSucursal")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.TelSucursal):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.TelSucursal)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("TelSucursal")
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.EmailSucursal):</span>
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.EmailSucursal)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("EmailSucursal")
+                @if (Model != null && Model.MensajeErrorEmail != null)
+                {
+                    <span>@Model.MensajeErrorEmail</span>
+                }
+            </div>
+            <div>
+                <span>@Html.LabelFor(x => x.FechaApertura):</span>
+            </div>
+            <div>
+                @Html.EditorFor(x => x.FechaApertura, new { htmlAttributes = new { @class = "DateClass" } })
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("FechaApertura")
+            </div>
+            <div class="Columna_3">
+                <input type="submit" value="AGREGAR" class=" botonMoy boton" />
+            </div>
+        </div>
+    }
+</main>
+

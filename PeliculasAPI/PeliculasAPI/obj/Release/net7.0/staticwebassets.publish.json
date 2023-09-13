@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "KgwcL/XChz56YsjilZbsLymEdxb3kDQNsC5M7/m57BU=",
+  "Source": "PeliculasAPI",
+  "BasePath": "_content/PeliculasAPI",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PeliculasAPI\\wwwroot",
+      "Source": "PeliculasAPI",
+      "ContentRoot": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\",
+      "BasePath": "_content/PeliculasAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\actores\\73aa6a11-2b24-4468-8ed0-a4fe8880204b.jpg",
+      "SourceId": "PeliculasAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\",
+      "BasePath": "_content/PeliculasAPI",
+      "RelativePath": "actores/73aa6a11-2b24-4468-8ed0-a4fe8880204b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actores\\73aa6a11-2b24-4468-8ed0-a4fe8880204b.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\actores\\7feb77f8-0c84-48f7-879b-597a4b09c822.jpg",
+      "SourceId": "PeliculasAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\",
+      "BasePath": "_content/PeliculasAPI",
+      "RelativePath": "actores/7feb77f8-0c84-48f7-879b-597a4b09c822.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actores\\7feb77f8-0c84-48f7-879b-597a4b09c822.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\actores\\ffe4b31d-72c1-48a9-a3c5-774b9337ba92.jpg",
+      "SourceId": "PeliculasAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\moyro\\source\\repos\\PeliculasAPI\\PeliculasAPI\\wwwroot\\",
+      "BasePath": "_content/PeliculasAPI",
+      "RelativePath": "actores/ffe4b31d-72c1-48a9-a3c5-774b9337ba92.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actores\\ffe4b31d-72c1-48a9-a3c5-774b9337ba92.jpg"
+    }
+  ]
+}

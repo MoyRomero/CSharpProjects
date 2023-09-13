@@ -1,0 +1,76 @@
+﻿@using AppWebMVC.Models;
+@model CVIAJE
+@{
+    ViewBag.Title = "Agregar";
+    List<SelectListItem> ListaLugarOri = (List<SelectListItem>)ViewBag.LilugOrig;
+    List<SelectListItem> ListaLugarDes = (List<SelectListItem>)ViewBag.LilugDest;
+    List<SelectListItem> ListaBus = (List<SelectListItem>) ViewBag.LiIdBus;
+}
+
+
+<main>
+    <h2>AGREGAR VIAJE</h2>
+
+    @using (Html.BeginForm("Agregar", "Viaje", FormMethod.Post, new { @id = "formAgreg" }))
+    {
+        <div class="Add-Data-Container BackGrounds">
+
+            <div class="Columna_3">
+                <h2>AÑADIR DATOS</h2>
+            </div>
+            <div>
+                <span> @Html.LabelFor(x => x.LugarOrigen): </span>
+            </div>
+            <div>
+                @Html.DropDownList("IDLugarOrigen", ListaLugarOri)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("LugarOrigen")
+            </div>
+
+            <div>
+                <span> @Html.LabelFor(x => x.LugarDestino): </span>
+            </div>
+            <div>
+                @Html.DropDownList("IDLugarDestino", ListaLugarDes)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("LugarDestino")
+            </div>
+
+            <div>
+                <span> @Html.LabelFor(x => x.IDBus): </span>
+            </div>
+            <div>
+                @Html.DropDownList("IDBus", ListaBus)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("IDBus")
+            </div>
+
+            <div>
+                <span> @Html.LabelFor(x => x.Precio): </span>
+            </div>
+            <div>
+                @Html.EditorFor(x => x.Precio)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("Precio")
+            </div>
+
+            <div>
+                <span> @Html.LabelFor(x => x.FechaViaje): </span>
+            </div>
+            <div>
+                @Html.EditorFor(x => x.FechaViaje)
+            </div>
+            <div class="Columna_3 WarningText">
+                @Html.ValidationMessage("FechaViaje")
+            </div>
+
+            <div>
+                <input type="submit" value="AGREGAR" class=" botonMoy boton" />
+            </div>
+        </div>
+    }
+</main>

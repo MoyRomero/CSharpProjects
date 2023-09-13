@@ -1,0 +1,50 @@
+﻿@using AppWebMVC.Models
+@model List<CTIPOUSUARIO>
+@{
+    ViewBag.Title = "Index";
+}
+
+<main>
+    <h2>TIPOS DE USUARIO</h2>
+
+    @using (Html.BeginForm("Index", "TipoUsuario", FormMethod.Get, new { @id = "formTipoUsuario" }))
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td>@Html.LabelFor(x => Model[0].IDTipoUsuario)</td>
+                    <td>@Html.LabelFor(x => Model[0].NOMBRE)</td>
+                    <td>@Html.LabelFor(x => Model[0].Descripcion)</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                </tr>
+                <tr>
+                    <td style = "padding:5px">@Html.TextBox("IDTipoUsuario", null, new { @placeholder = "Buscar (ID)" })</td>
+                    <td style = "padding:5px">@Html.TextBox("NOMBRE", null, new { @placeholder = "Buscar (NOMBRE)" })</td>
+                    <td style = "padding:5px">@Html.TextBox("Descripcion", null, new { @placeholder = "Buscar (DESC)" })</td>
+                    <td style = "padding:5px"> <button type = "submit" class=" botonMoy boton" onclick = "Buscar()">BUSCAR</button></td>
+                    <td style = "padding:5px"> <button type = "submit" class=" botonMoy boton" onclick = "Limpiar()">LIMPIAR</button></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IDTipoUsuario</td>
+                        <td>@item.NOMBRE</td>
+                        <td>@item.Descripcion</td>
+                        <td>@Html.ActionLink(" ", "Editar", "Cliente", new { id = item.IDTipoUsuario }, new { @class = "fa-solid fa-pen scaleIcon", @style = "color:#fffe" })</td>
+                        <td><button class="fa-solid fa-trash scaleIcon transparent" onclick="EliminarPopUp(@item.IDTipoUsuario)" style="color:#fffe"></button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    @using (Html.BeginForm("Eliminar", "Cliente", FormMethod.Post, new { @id = "frmEliminar" }))
+    {@Html.Hidden("idElemento");
+}
+    <div class="BackGrounds CRUDContainer">
+        @Html.ActionLink("AGREGAR DATOS", "Agregar", "Cliente", null, new { @class = "botonMoy" })
+    </div>
+</main>

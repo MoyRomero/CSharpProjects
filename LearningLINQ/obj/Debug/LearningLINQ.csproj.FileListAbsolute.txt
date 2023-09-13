@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\LearningLINQ\bin\Debug\LearningLINQ.exe.config
+C:\Users\moyro\source\repos\LearningLINQ\bin\Debug\LearningLINQ.exe
+C:\Users\moyro\source\repos\LearningLINQ\bin\Debug\LearningLINQ.pdb
+C:\Users\moyro\source\repos\LearningLINQ\obj\Debug\LearningLINQ.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\LearningLINQ\obj\Debug\LearningLINQ.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\LearningLINQ\obj\Debug\LearningLINQ.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\LearningLINQ\obj\Debug\LearningLINQ.exe
+C:\Users\moyro\source\repos\LearningLINQ\obj\Debug\LearningLINQ.pdb

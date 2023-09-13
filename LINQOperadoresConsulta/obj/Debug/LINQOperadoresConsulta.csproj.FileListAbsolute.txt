@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\LINQOperadoresConsulta\bin\Debug\LINQOperadoresConsulta.exe.config
+C:\Users\moyro\source\repos\LINQOperadoresConsulta\bin\Debug\LINQOperadoresConsulta.exe
+C:\Users\moyro\source\repos\LINQOperadoresConsulta\bin\Debug\LINQOperadoresConsulta.pdb
+C:\Users\moyro\source\repos\LINQOperadoresConsulta\obj\Debug\LINQOperadoresConsulta.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\LINQOperadoresConsulta\obj\Debug\LINQOperadoresConsulta.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\LINQOperadoresConsulta\obj\Debug\LINQOperadoresConsulta.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\LINQOperadoresConsulta\obj\Debug\LINQOperadoresConsulta.exe
+C:\Users\moyro\source\repos\LINQOperadoresConsulta\obj\Debug\LINQOperadoresConsulta.pdb

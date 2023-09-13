@@ -1,0 +1,100 @@
+﻿@using AppWebMVC.Models;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Learning ASP.NET</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/c36a560a32.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/scripts/modernizr-2.6.2.min.js"></script>
+</head>
+
+<body onresize="MedirAncho">
+    <header>
+        <nav id="nav">
+
+
+            @foreach (var Link in (List<CMENU>)Session["Rol"])
+            {
+                @Html.ActionLink(Link.Mensaje, Link.NombreAccion, Link.NombreControlador,
+               new { area = "" }, new { @class = "navbar-brand" })
+            }
+
+            @Html.ActionLink("Cerrar Sesión", "CerrarSesion", "Login",
+           new { area = "" }, new { @class = "navbar-brand" })
+
+            @*@Html.ActionLink("MARCAS", "Index", "Marca", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("SUCURSALES", "Index", "Sucursal", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("CLIENTES", "Index", "Cliente", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("EMPLEADOS", "Index", "Empleado", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("BUS", "Index", "Bus", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("VIAJES", "Index", "Viaje", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("T.USUARIOS", "Index", "TipoUsuario", new { area = "" }, new { @class = "nav-brand" })
+                @Html.ActionLink("ROL", "Index", "Rol", new { area = "" }, new { @class = "nav-brand" })
+                @Html.ActionLink("PÁGINA", "Index", "Pagina", new { area = "" }, new { @class = "nav-brand" })
+                @Html.ActionLink("USUARIO", "Index", "Usuario", new { area = "" }, new { @class = "nav-brand" })
+                @Html.ActionLink("ROL PÁGINA", "Index", "RolPagina", new { area = "" }, new { @class = "nav-brand" })*@
+
+
+            <a id="btnMenu" style=" display:none" class="navbar-brand">MENÚ</a>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <dialog id="AgregarDialogo" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>¿Desea agregar la información a la base de datos?</h2>
+            </div>
+
+            <div>
+                <button class="botonMoy boton" onclick="CancelarDialogo()" type="button">CANCELAR</button>
+                <button class="botonMoy boton" onclick="OkDialogo()" type="button">AGREGAR</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="EditarDialogo" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>¿Desea actualizar los datos?</h2>
+            </div>
+
+            <div>
+                <button class="botonMoy boton" onclick="CancelarDialogo()" type="button">CANCELAR</button>
+                <button class="botonMoy boton" onclick="OkDialogo()" type="button">ACTUALIZAR</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="EliminarDialogo" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>¿Desea eliminar los datos?</h2>
+            </div>
+
+            <div>
+                <button class="botonMoy boton" onclick="CancelarDialogo()" type="button">CANCELAR</button>
+                <button class="botonMoy boton" onclick="Eliminar()" type="button">ELIMINAR</button>
+            </div>
+        </div>
+    </dialog>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Aplicación ASP.NET De Moy</p>
+    </footer>
+
+    <script src="~/scripts/Funcionamiento.js"></script>
+    @*<script src="~/scripts/jquery-1.10.2.min.js"></script>
+            <script src="~/scripts/jquery3.5.1.min.js"></script>
+            <script src="~/scripts/jquery3.6.4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>*@
+    <script src="~/scripts/jquery3.6.4.min.js"></script>
+    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\bin\Debug\net7.0\LINQ_Ejercicios_2.exe
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\bin\Debug\net7.0\LINQ_Ejercicios_2.deps.json
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\bin\Debug\net7.0\LINQ_Ejercicios_2.runtimeconfig.json
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\bin\Debug\net7.0\LINQ_Ejercicios_2.dll
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\bin\Debug\net7.0\LINQ_Ejercicios_2.pdb
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\LINQ_Ejercicios_2.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\LINQ_Ejercicios_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\LINQ_Ejercicios_2.AssemblyInfoInputs.cache
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\LINQ_Ejercicios_2.AssemblyInfo.cs
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\LINQ_Ejercicios_2.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\LINQ_Ejercicios_2.dll
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\refint\LINQ_Ejercicios_2.dll
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\LINQ_Ejercicios_2.pdb
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\LINQ_Ejercicios_2.genruntimeconfig.cache
+C:\Users\moyro\source\repos\LINQ_Ejercicios_2\LINQ_Ejercicios_2\obj\Debug\net7.0\ref\LINQ_Ejercicios_2.dll

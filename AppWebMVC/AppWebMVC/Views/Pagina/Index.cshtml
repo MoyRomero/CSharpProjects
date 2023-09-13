@@ -1,0 +1,179 @@
+﻿@using AppWebMVC.Models
+@model List<CPAGINA>
+@{
+    ViewBag.Title = "PÁGINAS";
+}
+
+<main>
+    <h2> PÁGINAS </h2>
+
+    @using (Ajax.BeginForm("Filtro", "", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "divTablaPagina",
+        InsertionMode = InsertionMode.Replace
+    }, new { @id = "frmFiltradoPagina" }))
+    {
+        <div class="BackGrounds Formulario">
+            <div>
+                <span><label>FILTRAR POR TÍTULO:</label></span>
+                <span>@Html.TextBox("MensajeFiltro")</span>
+            </div>
+        </div>
+
+        <div id="divTablaPagina">
+            @Html.Partial("_TablaPaginas", Model)
+        </div>
+    }
+
+    <div class="BackGrounds CRUDContainer">
+        <button class="botonMoy boton" onclick="AgregarPag()">AGREGAR</button>
+    </div>
+
+    <dialog id="AgregarPagDialogo" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>AGREGAR NUEVA PÁGINA</h2>
+            </div>
+
+            @using (Ajax.BeginForm("Guardar", "Pagina", null, new AjaxOptions
+            {
+                HttpMethod = "POST",
+                OnSuccess = "Guardar",
+                UpdateTargetId = "ErroresDv"
+            }))
+            {
+                <div id="ErroresDv"></div>
+                <div class="Formulario">
+                    <div>
+                        <span><label>MENSAJE:</label></span>
+                        @Html.TextBox("Mensaje", null, new { @placeholder = "Ingrese: MENSAJE" })
+                    </div>
+                    <div>
+                        <span><label>ACCIÓN:</label></span>
+                        @Html.TextBox("Accion", null, new { @placeholder = "Ingrese: ACCIÓN" })
+                    </div>
+                    <div>
+                        <span><label>CONTROLADOR:</label></span>
+                        @Html.TextBox("Controlador", null, new { @placeholder = "Ingrese: CONTROLADOR" })
+                    </div>
+                    @Html.Hidden("Confirmar")
+                </div>
+
+                <div>
+                    <button class="botonMoy boton" onclick="" id="btnCancelarModalPag" type="submit">CANCELAR</button>
+                    <button class="botonMoy boton" onclick="" id="btnAgregarPag" type="submit">AGREGAR</button>
+                </div>
+            }
+        </div>
+    </dialog>
+
+    <dialog id="ModalPEl" class="BackGrounds">
+        <div class="ModalBox">
+            <div>
+                <h2>¿Desea eliminar los datos?</h2>
+            </div>
+
+            <div>
+                <button class="botonMoy boton" onclick="CancelarPEl()" type="button">CANCELAR</button>
+                <button class="botonMoy boton" onclick="EliminarP()" type="button">ELIMINAR</button>
+            </div>
+        </div>
+    </dialog> 
+
+</main>
+
+<script>
+
+    const NOMBRE = document.getElementById("NOMBRE");
+    const ModalPag = document.getElementById("AgregarPagDialogo");
+    const btnAgregarPag = document.getElementById("btnAgregarPag");
+    const btnCancelarModalPag = document.getElementById("btnCancelarModalPag");
+
+    const Mensajetxt = document.getElementById("Mensaje");
+    const Acciontxt = document.getElementById("Accion");
+    const Controladortxt = document.getElementById("Controlador");
+    const Confirmar = document.getElementById("Confirmar");
+    //MODAL EL
+    const ModalREl = document.getElementById("ModalREl");
+    
+    Eventos();
+
+    function Eventos() {
+        document.getElementById("MensajeFiltro").onkeyup = (e) => {
+            e.preventDefault();
+
+            setTimeout(() => {
+                $("#frmFiltradoPagina").trigger("submit");
+            }, 500)
+        }
+
+        btnCancelarModalPag.onclick = (e) => {
+            e.preventDefault();
+            ModalPag.close();
+        }
+    }
+
+    function EditarpPag(id) {
+
+        document.getElementById("Confirmar").value = id;
+        LimpiarCampos()
+
+        $.get("Pagina/CapturarDatos/?Confirmar=" + id, (data) => {
+            Mensajetxt.value = data.Mensaje;
+            Acciontxt.value = data.Accion;
+            Controlador.value = data.Controlador;
+        })
+
+        ModalPag.showModal();
+    }
+
+    function AgregarPag() {
+
+        document.getElementById("Confirmar").value = -1;
+        LimpiarCampos()
+        ModalPag.showModal();
+    };
+
+    function Guardar(respuesta) {
+        if (respuesta == "1" || respuesta == "0") {
+            $("#frmFiltradoPagina").trigger("submit");
+            alert("Se agregó la información a la base de datos, de forma correcta.");
+            ModalPag.close();
+        }
+        else alert("Ocurrió un error.");
+    }
+
+    function LimpiarCampos() {
+        Mensajetxt.value = "";
+        Acciontxt.value = "";
+        Controladortxt.value = "";
+        document.getElementById("ErroresDv").innerHTML = "";
+    }
+
+    function EliminarP() {
+
+        let id = Confirmar.value;
+
+        $.get("Pagina/Eliminar/?IDPagina=" + id, (data) => {
+            if (data == "1") {
+                alert("Se eliminaron los datos, de forma correcta.");
+                $("#frmFiltradoPagina").trigger("submit");
+                ModalPEl.close();
+            }
+            else {
+                alert("Ocurrió un error.");
+            }
+        });
+    }
+
+    function EliminarPopUpP(id) {
+
+        Confirmar.value = id;
+
+        ModalPEl.showModal();
+    }
+
+    const CancelarPEl = () => ModalPEl.close();
+
+</script>

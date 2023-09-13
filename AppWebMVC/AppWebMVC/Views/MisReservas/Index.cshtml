@@ -1,0 +1,91 @@
+﻿@using AppWebMVC.Models;
+@model List<CRESERVA>
+@{
+    ViewBag.Title = "MIS RESERVAS";
+    int c = 1;
+    decimal total = 0;
+}
+
+<main>
+    <h2>MIS RESERVAS</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Correlativo</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Fecha</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>SubTotal</th>
+                <th colspan="2">Cancelar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@c</td>
+                    <td>@item.LugarOrigen</td>
+                    <td>@item.LugarDestino</td>
+                    <td>@item.FechaViaje</td>
+                    <td>@item.AsientosReservados</td>
+                    <td>@item.Precio</td>
+                    <td>@item.SubTotal</td>
+                    <td><button class="fa-solid fa-trash scaleIcon transparent" onclick="EliminarViaje(@item.IDViaje.ToString())" style="color:#fffe"></button></td>
+                </tr>
+                c++;
+                total += item.SubTotal;
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="7" style="text-align:right;">TOTAL:</td>
+                <td style="text-align:center;">$ @total</td>
+            </tr>
+            <tr>
+                <td colspan="8"><button onclick="RealizarCompra(@total)" class="botonMoy"> REALIZAR COMPRA</button></td>
+            </tr>
+        </tfoot>
+    </table>
+</main>
+
+<script>
+
+    function EliminarViaje(IDviaje) {
+
+        if (confirm("¿Realmente desea eliminar el viaje?") == true) {
+
+            const URL = "Reserva/RemoverCookies/?IDviaje=" + IDviaje;
+            $.get(URL, (data) => {
+                if (data == "1") {
+                    alert("Se eliminó el viaje de forma correcta.");
+                    location.reload();
+                }
+                else {
+                    alert("Ocurrió un error.");
+                }
+            });
+        }
+    }
+
+    function RealizarCompra(Total) {
+
+        if (confirm("¿Desea realizar la compra de sus viajes reservados?") == true) {
+
+            $.get("MisReservas/EnviarABD/?Total=" + Total, (data) => {
+                if (data == "1") {
+                    alert("Se realizó la compra, de forma correcta.");
+                    location.reload();
+                }
+                else {
+                    alert("Ocurrió un error:" + data);
+                }
+            });
+        }
+    }
+
+</script>
+
+

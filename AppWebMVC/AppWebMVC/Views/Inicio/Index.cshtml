@@ -1,0 +1,12 @@
+﻿@using AppWebMVC.Models
+
+@{
+    ViewBag.Title = "INICIO";
+    CDATOSLOGIN data = (CDATOSLOGIN) Session["DataLogin"];
+}
+
+<main>
+    <h2>Bienvenido @data.NombreCompleto</h2>
+</main>
+
+

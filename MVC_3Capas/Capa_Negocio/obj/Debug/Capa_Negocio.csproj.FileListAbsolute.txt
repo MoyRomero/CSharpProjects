@@ -1,0 +1,11 @@
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\bin\Debug\Capa_Negocio.dll
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\bin\Debug\Capa_Negocio.pdb
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\bin\Debug\Capa_Datos.dll
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\bin\Debug\Capa_Entidad.dll
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\bin\Debug\Capa_Datos.pdb
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\bin\Debug\Capa_Entidad.pdb
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\obj\Debug\Capa_Negocio.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\obj\Debug\Capa_Negocio.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\obj\Debug\Capa_Negocio.csproj.CopyComplete
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\obj\Debug\Capa_Negocio.dll
+C:\Users\moyro\source\repos\MVC_3Capas\Capa_Negocio\obj\Debug\Capa_Negocio.pdb

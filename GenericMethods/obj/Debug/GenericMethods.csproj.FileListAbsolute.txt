@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\GenericMethods\bin\Debug\GenericMethods.exe.config
+C:\Users\moyro\source\repos\GenericMethods\bin\Debug\GenericMethods.exe
+C:\Users\moyro\source\repos\GenericMethods\bin\Debug\GenericMethods.pdb
+C:\Users\moyro\source\repos\GenericMethods\obj\Debug\GenericMethods.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\GenericMethods\obj\Debug\GenericMethods.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\GenericMethods\obj\Debug\GenericMethods.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\GenericMethods\obj\Debug\GenericMethods.exe
+C:\Users\moyro\source\repos\GenericMethods\obj\Debug\GenericMethods.pdb

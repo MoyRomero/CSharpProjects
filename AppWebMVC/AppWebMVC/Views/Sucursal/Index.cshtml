@@ -1,0 +1,52 @@
+﻿@using AppWebMVC.Models;
+@model List<CSUCURSAL>
+@{
+    ViewBag.Title = "SUCURSALES";
+}
+
+<main>
+    <h2>SUCURSAL</h2>
+
+    @using (Html.BeginForm("Index", "Sucursal", FormMethod.Post, new { @id = "formBSensitivo"}))
+    {
+        <div class="ContenedorBusqueda BackGrounds">
+            <label>BUSCAR (POR NOMBRE):</label>
+            @Html.TextBox("NOMBRE")
+        </div>
+    }
+
+    <table>
+        <thead>
+            <tr>
+                <td id="FS-Mod">@Html.LabelFor(x => Model[0].IDSucursal)</tdid="FS-Mod">
+                <td>@Html.LabelFor(x => Model[0].NOMBRE)</td>
+                <td id="FS-Mod">@Html.LabelFor(x => Model[0].DireccSucursal)</td>
+                <td>@Html.LabelFor(x => Model[0].TelSucursal)</td>
+                <td>@Html.LabelFor(x => Model[0].EmailSucursal)</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IDSucursal</td>
+                    <td id="FS-Mod">@item.NOMBRE</td>
+                    <td id="FS-Mod">@item.DireccSucursal</td>
+                    <td>@item.TelSucursal</td>
+                    <td style="overflow: hidden; max-width: 50px; text-overflow: ellipsis;">@item.EmailSucursal</td>
+                    <td>@Html.ActionLink(" ", "Editar", "Sucursal", new { id = item.IDSucursal }, new { @class = "fa-solid fa-pen scaleIcon", @style = "color:#fffe" })</td>
+                    <td><button class="fa-solid fa-trash scaleIcon transparent" onclick="EliminarPopUp(@item.IDSucursal)" style="color:#fffe"></button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @using (Html.BeginForm("Eliminar", "Sucursal", FormMethod.Post, new { @id = "frmEliminar" }))
+    {@Html.Hidden("idElemento");}
+
+    <div class="BackGrounds CRUDContainer">
+        @Html.ActionLink("AGREGAR DATOS", "Agregar", "Sucursal", null, new { @class = "botonMoy" })
+    </div>
+</main>

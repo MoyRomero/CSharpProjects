@@ -1,0 +1,8 @@
+C:\Users\moyro\source\repos\ConsultaDeLenguajeIntegrado\ConsultaDeLenguajeIntegrado\bin\Debug\ConsultaDeLenguajeIntegrado.exe.config
+C:\Users\moyro\source\repos\ConsultaDeLenguajeIntegrado\ConsultaDeLenguajeIntegrado\bin\Debug\ConsultaDeLenguajeIntegrado.exe
+C:\Users\moyro\source\repos\ConsultaDeLenguajeIntegrado\ConsultaDeLenguajeIntegrado\bin\Debug\ConsultaDeLenguajeIntegrado.pdb
+C:\Users\moyro\source\repos\ConsultaDeLenguajeIntegrado\ConsultaDeLenguajeIntegrado\obj\Debug\ConsultaDeLenguajeIntegrado.csproj.AssemblyReference.cache
+C:\Users\moyro\source\repos\ConsultaDeLenguajeIntegrado\ConsultaDeLenguajeIntegrado\obj\Debug\ConsultaDeLenguajeIntegrado.csproj.SuggestedBindingRedirects.cache
+C:\Users\moyro\source\repos\ConsultaDeLenguajeIntegrado\ConsultaDeLenguajeIntegrado\obj\Debug\ConsultaDeLenguajeIntegrado.csproj.CoreCompileInputs.cache
+C:\Users\moyro\source\repos\ConsultaDeLenguajeIntegrado\ConsultaDeLenguajeIntegrado\obj\Debug\ConsultaDeLenguajeIntegrado.exe
+C:\Users\moyro\source\repos\ConsultaDeLenguajeIntegrado\ConsultaDeLenguajeIntegrado\obj\Debug\ConsultaDeLenguajeIntegrado.pdb
